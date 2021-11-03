@@ -1,0 +1,1163 @@
+/gate/verbose Physic 0
+/gate/verbose Cuts 0
+/gate/verbose SD 0
+/gate/verbose Actions 0
+/gate/verbose Actor 0
+/gate/verbose Step 0
+/gate/verbose Error 0
+/gate/verbose Warning 0
+/gate/verbose Output 0
+/gate/verbose Beam 0
+/gate/verbose Volume 0
+/gate/verbose Image 0
+/gate/verbose Geometry 0
+/gate/verbose Core 2
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+
+/gate/geometry/setMaterialDatabase data/AF_GateMaterials.db
+/gate/world/setMaterial Air
+/gate/world/geometry/setXLength 5.0 m
+/gate/world/geometry/setYLength 5.0 m
+/gate/world/geometry/setZLength 10.0 m
+/gate/world/daughters/name killer
+/gate/world/daughters/insert box
+/gate/killer/geometry/setXLength 5 m
+/gate/killer/geometry/setYLength 5 m
+/gate/killer/geometry/setZLength 2 cm
+/gate/killer/placement/setTranslation 0 0 2.2 m
+/gate/killer/setMaterial Air
+/gate/killer/vis/forceSolid
+/gate/actor/addActor KillActor kill_actor
+/gate/actor/kill_actor/save output/mykiller31.txt
+/gate/actor/kill_actor/attachTo killer
+/gate/world/daughters/name pre_collimator
+/gate/world/daughters/insert box
+/gate/pre_collimator/geometry/setXLength 200 mm
+/gate/pre_collimator/geometry/setYLength 200 mm
+/gate/pre_collimator/geometry/setZLength 46 mm
+/gate/pre_collimator/placement/setTranslation 0 0 -3575 mm
+/gate/pre_collimator/setMaterial Copper
+/gate/pre_collimator/vis/forceWireframe
+/gate/pre_collimator/daughters/name pre_hole
+/gate/pre_collimator/daughters/insert box
+/gate/pre_hole/geometry/setXLength 150 mm
+/gate/pre_hole/geometry/setYLength 150 mm
+/gate/pre_hole/geometry/setZLength 46 mm
+/gate/pre_hole/placement/setTranslation 0 0 0 mm
+/gate/pre_hole/setMaterial Air
+/gate/pre_hole/vis/forceSolid
+/gate/world/daughters/name RF_box
+/gate/world/daughters/insert box
+/gate/RF_box/setMaterial Air
+/gate/RF_box/geometry/setXLength 20 cm
+/gate/RF_box/geometry/setYLength 20 cm
+/gate/RF_box/geometry/setZLength 6 cm
+/gate/RF_box/placement/setTranslation 0 0 -236 cm
+/gate/RF_box/vis/forceWireframe
+/gate/RF_box/daughters/name RF1
+/gate/RF_box/daughters/insert box
+/gate/RF1/setMaterial Aluminium
+/gate/RF1/geometry/setXLength 0.041000 cm
+/gate/RF1/geometry/setYLength 20 cm
+/gate/RF1/geometry/setZLength 0.136000 cm
+/gate/RF1/placement/setTranslation -9.979500 0 -2.932000 cm
+/gate/RF1/vis/forceSolid
+/gate/RF1/vis/setColor yellow
+/gate/RF1/repeaters/insert linear
+/gate/RF1/linear/setRepeatNumber 40
+/gate/RF1/linear/setRepeatVector 5 0 0 mm
+/gate/RF1/linear/autoCenter false
+/gate/RF_box/daughters/name RF2
+/gate/RF_box/daughters/insert box
+/gate/RF2/setMaterial Aluminium
+/gate/RF2/geometry/setXLength 0.007000 cm
+/gate/RF2/geometry/setYLength 20 cm
+/gate/RF2/geometry/setZLength 0.158000 cm
+/gate/RF2/placement/setTranslation -9.955500 0 -2.921000 cm
+/gate/RF2/vis/forceSolid
+/gate/RF2/vis/setColor yellow
+/gate/RF2/repeaters/insert linear
+/gate/RF2/linear/setRepeatNumber 40
+/gate/RF2/linear/setRepeatVector 5 0 0 mm
+/gate/RF2/linear/autoCenter false
+/gate/RF_box/daughters/name RF3
+/gate/RF_box/daughters/insert box
+/gate/RF3/setMaterial Aluminium
+/gate/RF3/geometry/setXLength 0.002000 cm
+/gate/RF3/geometry/setYLength 20 cm
+/gate/RF3/geometry/setZLength 0.181000 cm
+/gate/RF3/placement/setTranslation -9.951000 0 -2.909500 cm
+/gate/RF3/vis/forceSolid
+/gate/RF3/vis/setColor yellow
+/gate/RF3/repeaters/insert linear
+/gate/RF3/linear/setRepeatNumber 40
+/gate/RF3/linear/setRepeatVector 5 0 0 mm
+/gate/RF3/linear/autoCenter false
+/gate/RF_box/daughters/name RF4
+/gate/RF_box/daughters/insert box
+/gate/RF4/setMaterial Aluminium
+/gate/RF4/geometry/setXLength 0.012000 cm
+/gate/RF4/geometry/setYLength 20 cm
+/gate/RF4/geometry/setZLength 0.204000 cm
+/gate/RF4/placement/setTranslation -9.944000 0 -2.898000 cm
+/gate/RF4/vis/forceSolid
+/gate/RF4/vis/setColor yellow
+/gate/RF4/repeaters/insert linear
+/gate/RF4/linear/setRepeatNumber 40
+/gate/RF4/linear/setRepeatVector 5 0 0 mm
+/gate/RF4/linear/autoCenter false
+/gate/RF_box/daughters/name RF5
+/gate/RF_box/daughters/insert box
+/gate/RF5/setMaterial Aluminium
+/gate/RF5/geometry/setXLength 0.011000 cm
+/gate/RF5/geometry/setYLength 20 cm
+/gate/RF5/geometry/setZLength 0.226000 cm
+/gate/RF5/placement/setTranslation -9.932500 0 -2.887000 cm
+/gate/RF5/vis/forceSolid
+/gate/RF5/vis/setColor yellow
+/gate/RF5/repeaters/insert linear
+/gate/RF5/linear/setRepeatNumber 40
+/gate/RF5/linear/setRepeatVector 5 0 0 mm
+/gate/RF5/linear/autoCenter false
+/gate/RF_box/daughters/name RF6
+/gate/RF_box/daughters/insert box
+/gate/RF6/setMaterial Aluminium
+/gate/RF6/geometry/setXLength 0.006000 cm
+/gate/RF6/geometry/setYLength 20 cm
+/gate/RF6/geometry/setZLength 0.249000 cm
+/gate/RF6/placement/setTranslation -9.924000 0 -2.875500 cm
+/gate/RF6/vis/forceSolid
+/gate/RF6/vis/setColor yellow
+/gate/RF6/repeaters/insert linear
+/gate/RF6/linear/setRepeatNumber 40
+/gate/RF6/linear/setRepeatVector 5 0 0 mm
+/gate/RF6/linear/autoCenter false
+/gate/RF_box/daughters/name RF7
+/gate/RF_box/daughters/insert box
+/gate/RF7/setMaterial Aluminium
+/gate/RF7/geometry/setXLength 0.007000 cm
+/gate/RF7/geometry/setYLength 20 cm
+/gate/RF7/geometry/setZLength 0.272000 cm
+/gate/RF7/placement/setTranslation -9.917500 0 -2.864000 cm
+/gate/RF7/vis/forceSolid
+/gate/RF7/vis/setColor yellow
+/gate/RF7/repeaters/insert linear
+/gate/RF7/linear/setRepeatNumber 40
+/gate/RF7/linear/setRepeatVector 5 0 0 mm
+/gate/RF7/linear/autoCenter false
+/gate/RF_box/daughters/name RF8
+/gate/RF_box/daughters/insert box
+/gate/RF8/setMaterial Aluminium
+/gate/RF8/geometry/setXLength 0.007000 cm
+/gate/RF8/geometry/setYLength 20 cm
+/gate/RF8/geometry/setZLength 0.294000 cm
+/gate/RF8/placement/setTranslation -9.910500 0 -2.853000 cm
+/gate/RF8/vis/forceSolid
+/gate/RF8/vis/setColor yellow
+/gate/RF8/repeaters/insert linear
+/gate/RF8/linear/setRepeatNumber 40
+/gate/RF8/linear/setRepeatVector 5 0 0 mm
+/gate/RF8/linear/autoCenter false
+/gate/RF_box/daughters/name RF9
+/gate/RF_box/daughters/insert box
+/gate/RF9/setMaterial Aluminium
+/gate/RF9/geometry/setXLength 0.007000 cm
+/gate/RF9/geometry/setYLength 20 cm
+/gate/RF9/geometry/setZLength 0.317000 cm
+/gate/RF9/placement/setTranslation -9.903500 0 -2.841500 cm
+/gate/RF9/vis/forceSolid
+/gate/RF9/vis/setColor yellow
+/gate/RF9/repeaters/insert linear
+/gate/RF9/linear/setRepeatNumber 40
+/gate/RF9/linear/setRepeatVector 5 0 0 mm
+/gate/RF9/linear/autoCenter false
+/gate/RF_box/daughters/name RF10
+/gate/RF_box/daughters/insert box
+/gate/RF10/setMaterial Aluminium
+/gate/RF10/geometry/setXLength 0.006000 cm
+/gate/RF10/geometry/setYLength 20 cm
+/gate/RF10/geometry/setZLength 0.340000 cm
+/gate/RF10/placement/setTranslation -9.897000 0 -2.830000 cm
+/gate/RF10/vis/forceSolid
+/gate/RF10/vis/setColor yellow
+/gate/RF10/repeaters/insert linear
+/gate/RF10/linear/setRepeatNumber 40
+/gate/RF10/linear/setRepeatVector 5 0 0 mm
+/gate/RF10/linear/autoCenter false
+/gate/RF_box/daughters/name RF11
+/gate/RF_box/daughters/insert box
+/gate/RF11/setMaterial Aluminium
+/gate/RF11/geometry/setXLength 0.006000 cm
+/gate/RF11/geometry/setYLength 20 cm
+/gate/RF11/geometry/setZLength 0.362000 cm
+/gate/RF11/placement/setTranslation -9.891000 0 -2.819000 cm
+/gate/RF11/vis/forceSolid
+/gate/RF11/vis/setColor yellow
+/gate/RF11/repeaters/insert linear
+/gate/RF11/linear/setRepeatNumber 40
+/gate/RF11/linear/setRepeatVector 5 0 0 mm
+/gate/RF11/linear/autoCenter false
+/gate/RF_box/daughters/name RF12
+/gate/RF_box/daughters/insert box
+/gate/RF12/setMaterial Aluminium
+/gate/RF12/geometry/setXLength 0.006000 cm
+/gate/RF12/geometry/setYLength 20 cm
+/gate/RF12/geometry/setZLength 0.385000 cm
+/gate/RF12/placement/setTranslation -9.885000 0 -2.807500 cm
+/gate/RF12/vis/forceSolid
+/gate/RF12/vis/setColor yellow
+/gate/RF12/repeaters/insert linear
+/gate/RF12/linear/setRepeatNumber 40
+/gate/RF12/linear/setRepeatVector 5 0 0 mm
+/gate/RF12/linear/autoCenter false
+/gate/RF_box/daughters/name RF13
+/gate/RF_box/daughters/insert box
+/gate/RF13/setMaterial Aluminium
+/gate/RF13/geometry/setXLength 0.006000 cm
+/gate/RF13/geometry/setYLength 20 cm
+/gate/RF13/geometry/setZLength 0.407000 cm
+/gate/RF13/placement/setTranslation -9.879000 0 -2.796500 cm
+/gate/RF13/vis/forceSolid
+/gate/RF13/vis/setColor yellow
+/gate/RF13/repeaters/insert linear
+/gate/RF13/linear/setRepeatNumber 40
+/gate/RF13/linear/setRepeatVector 5 0 0 mm
+/gate/RF13/linear/autoCenter false
+/gate/RF_box/daughters/name RF14
+/gate/RF_box/daughters/insert box
+/gate/RF14/setMaterial Aluminium
+/gate/RF14/geometry/setXLength 0.005000 cm
+/gate/RF14/geometry/setYLength 20 cm
+/gate/RF14/geometry/setZLength 0.430000 cm
+/gate/RF14/placement/setTranslation -9.873500 0 -2.785000 cm
+/gate/RF14/vis/forceSolid
+/gate/RF14/vis/setColor yellow
+/gate/RF14/repeaters/insert linear
+/gate/RF14/linear/setRepeatNumber 40
+/gate/RF14/linear/setRepeatVector 5 0 0 mm
+/gate/RF14/linear/autoCenter false
+/gate/RF_box/daughters/name RF15
+/gate/RF_box/daughters/insert box
+/gate/RF15/setMaterial Aluminium
+/gate/RF15/geometry/setXLength 0.006000 cm
+/gate/RF15/geometry/setYLength 20 cm
+/gate/RF15/geometry/setZLength 0.453000 cm
+/gate/RF15/placement/setTranslation -9.868000 0 -2.773500 cm
+/gate/RF15/vis/forceSolid
+/gate/RF15/vis/setColor yellow
+/gate/RF15/repeaters/insert linear
+/gate/RF15/linear/setRepeatNumber 40
+/gate/RF15/linear/setRepeatVector 5 0 0 mm
+/gate/RF15/linear/autoCenter false
+/gate/RF_box/daughters/name RF16
+/gate/RF_box/daughters/insert box
+/gate/RF16/setMaterial Aluminium
+/gate/RF16/geometry/setXLength 0.005000 cm
+/gate/RF16/geometry/setYLength 20 cm
+/gate/RF16/geometry/setZLength 0.475000 cm
+/gate/RF16/placement/setTranslation -9.862500 0 -2.762500 cm
+/gate/RF16/vis/forceSolid
+/gate/RF16/vis/setColor yellow
+/gate/RF16/repeaters/insert linear
+/gate/RF16/linear/setRepeatNumber 40
+/gate/RF16/linear/setRepeatVector 5 0 0 mm
+/gate/RF16/linear/autoCenter false
+/gate/RF_box/daughters/name RF17
+/gate/RF_box/daughters/insert box
+/gate/RF17/setMaterial Aluminium
+/gate/RF17/geometry/setXLength 0.005000 cm
+/gate/RF17/geometry/setYLength 20 cm
+/gate/RF17/geometry/setZLength 0.498000 cm
+/gate/RF17/placement/setTranslation -9.857500 0 -2.751000 cm
+/gate/RF17/vis/forceSolid
+/gate/RF17/vis/setColor yellow
+/gate/RF17/repeaters/insert linear
+/gate/RF17/linear/setRepeatNumber 40
+/gate/RF17/linear/setRepeatVector 5 0 0 mm
+/gate/RF17/linear/autoCenter false
+/gate/RF_box/daughters/name RF18
+/gate/RF_box/daughters/insert box
+/gate/RF18/setMaterial Aluminium
+/gate/RF18/geometry/setXLength 0.005000 cm
+/gate/RF18/geometry/setYLength 20 cm
+/gate/RF18/geometry/setZLength 0.521000 cm
+/gate/RF18/placement/setTranslation -9.852500 0 -2.739500 cm
+/gate/RF18/vis/forceSolid
+/gate/RF18/vis/setColor yellow
+/gate/RF18/repeaters/insert linear
+/gate/RF18/linear/setRepeatNumber 40
+/gate/RF18/linear/setRepeatVector 5 0 0 mm
+/gate/RF18/linear/autoCenter false
+/gate/RF_box/daughters/name RF19
+/gate/RF_box/daughters/insert box
+/gate/RF19/setMaterial Aluminium
+/gate/RF19/geometry/setXLength 0.005000 cm
+/gate/RF19/geometry/setYLength 20 cm
+/gate/RF19/geometry/setZLength 0.543000 cm
+/gate/RF19/placement/setTranslation -9.847500 0 -2.728500 cm
+/gate/RF19/vis/forceSolid
+/gate/RF19/vis/setColor yellow
+/gate/RF19/repeaters/insert linear
+/gate/RF19/linear/setRepeatNumber 40
+/gate/RF19/linear/setRepeatVector 5 0 0 mm
+/gate/RF19/linear/autoCenter false
+/gate/RF_box/daughters/name RF20
+/gate/RF_box/daughters/insert box
+/gate/RF20/setMaterial Aluminium
+/gate/RF20/geometry/setXLength 0.005000 cm
+/gate/RF20/geometry/setYLength 20 cm
+/gate/RF20/geometry/setZLength 0.566000 cm
+/gate/RF20/placement/setTranslation -9.842500 0 -2.717000 cm
+/gate/RF20/vis/forceSolid
+/gate/RF20/vis/setColor yellow
+/gate/RF20/repeaters/insert linear
+/gate/RF20/linear/setRepeatNumber 40
+/gate/RF20/linear/setRepeatVector 5 0 0 mm
+/gate/RF20/linear/autoCenter false
+/gate/RF_box/daughters/name RF21
+/gate/RF_box/daughters/insert box
+/gate/RF21/setMaterial Aluminium
+/gate/RF21/geometry/setXLength 0.005000 cm
+/gate/RF21/geometry/setYLength 20 cm
+/gate/RF21/geometry/setZLength 0.589000 cm
+/gate/RF21/placement/setTranslation -9.837500 0 -2.705500 cm
+/gate/RF21/vis/forceSolid
+/gate/RF21/vis/setColor yellow
+/gate/RF21/repeaters/insert linear
+/gate/RF21/linear/setRepeatNumber 40
+/gate/RF21/linear/setRepeatVector 5 0 0 mm
+/gate/RF21/linear/autoCenter false
+/gate/RF_box/daughters/name RF22
+/gate/RF_box/daughters/insert box
+/gate/RF22/setMaterial Aluminium
+/gate/RF22/geometry/setXLength 0.004000 cm
+/gate/RF22/geometry/setYLength 20 cm
+/gate/RF22/geometry/setZLength 0.611000 cm
+/gate/RF22/placement/setTranslation -9.833000 0 -2.694500 cm
+/gate/RF22/vis/forceSolid
+/gate/RF22/vis/setColor yellow
+/gate/RF22/repeaters/insert linear
+/gate/RF22/linear/setRepeatNumber 40
+/gate/RF22/linear/setRepeatVector 5 0 0 mm
+/gate/RF22/linear/autoCenter false
+/gate/RF_box/daughters/name RF23
+/gate/RF_box/daughters/insert box
+/gate/RF23/setMaterial Aluminium
+/gate/RF23/geometry/setXLength 0.005000 cm
+/gate/RF23/geometry/setYLength 20 cm
+/gate/RF23/geometry/setZLength 0.634000 cm
+/gate/RF23/placement/setTranslation -9.828500 0 -2.683000 cm
+/gate/RF23/vis/forceSolid
+/gate/RF23/vis/setColor yellow
+/gate/RF23/repeaters/insert linear
+/gate/RF23/linear/setRepeatNumber 40
+/gate/RF23/linear/setRepeatVector 5 0 0 mm
+/gate/RF23/linear/autoCenter false
+/gate/RF_box/daughters/name RF24
+/gate/RF_box/daughters/insert box
+/gate/RF24/setMaterial Aluminium
+/gate/RF24/geometry/setXLength 0.004000 cm
+/gate/RF24/geometry/setYLength 20 cm
+/gate/RF24/geometry/setZLength 0.656000 cm
+/gate/RF24/placement/setTranslation -9.824000 0 -2.672000 cm
+/gate/RF24/vis/forceSolid
+/gate/RF24/vis/setColor yellow
+/gate/RF24/repeaters/insert linear
+/gate/RF24/linear/setRepeatNumber 40
+/gate/RF24/linear/setRepeatVector 5 0 0 mm
+/gate/RF24/linear/autoCenter false
+/gate/RF_box/daughters/name RF25
+/gate/RF_box/daughters/insert box
+/gate/RF25/setMaterial Aluminium
+/gate/RF25/geometry/setXLength 0.005000 cm
+/gate/RF25/geometry/setYLength 20 cm
+/gate/RF25/geometry/setZLength 0.679000 cm
+/gate/RF25/placement/setTranslation -9.819500 0 -2.660500 cm
+/gate/RF25/vis/forceSolid
+/gate/RF25/vis/setColor yellow
+/gate/RF25/repeaters/insert linear
+/gate/RF25/linear/setRepeatNumber 40
+/gate/RF25/linear/setRepeatVector 5 0 0 mm
+/gate/RF25/linear/autoCenter false
+/gate/RF_box/daughters/name RF26
+/gate/RF_box/daughters/insert box
+/gate/RF26/setMaterial Aluminium
+/gate/RF26/geometry/setXLength 0.004000 cm
+/gate/RF26/geometry/setYLength 20 cm
+/gate/RF26/geometry/setZLength 0.702000 cm
+/gate/RF26/placement/setTranslation -9.815000 0 -2.649000 cm
+/gate/RF26/vis/forceSolid
+/gate/RF26/vis/setColor yellow
+/gate/RF26/repeaters/insert linear
+/gate/RF26/linear/setRepeatNumber 40
+/gate/RF26/linear/setRepeatVector 5 0 0 mm
+/gate/RF26/linear/autoCenter false
+/gate/RF_box/daughters/name RF27
+/gate/RF_box/daughters/insert box
+/gate/RF27/setMaterial Aluminium
+/gate/RF27/geometry/setXLength 0.004000 cm
+/gate/RF27/geometry/setYLength 20 cm
+/gate/RF27/geometry/setZLength 0.724000 cm
+/gate/RF27/placement/setTranslation -9.811000 0 -2.638000 cm
+/gate/RF27/vis/forceSolid
+/gate/RF27/vis/setColor yellow
+/gate/RF27/repeaters/insert linear
+/gate/RF27/linear/setRepeatNumber 40
+/gate/RF27/linear/setRepeatVector 5 0 0 mm
+/gate/RF27/linear/autoCenter false
+/gate/RF_box/daughters/name RF28
+/gate/RF_box/daughters/insert box
+/gate/RF28/setMaterial Aluminium
+/gate/RF28/geometry/setXLength 0.004000 cm
+/gate/RF28/geometry/setYLength 20 cm
+/gate/RF28/geometry/setZLength 0.747000 cm
+/gate/RF28/placement/setTranslation -9.807000 0 -2.626500 cm
+/gate/RF28/vis/forceSolid
+/gate/RF28/vis/setColor yellow
+/gate/RF28/repeaters/insert linear
+/gate/RF28/linear/setRepeatNumber 40
+/gate/RF28/linear/setRepeatVector 5 0 0 mm
+/gate/RF28/linear/autoCenter false
+/gate/RF_box/daughters/name RF29
+/gate/RF_box/daughters/insert box
+/gate/RF29/setMaterial Aluminium
+/gate/RF29/geometry/setXLength 0.004000 cm
+/gate/RF29/geometry/setYLength 20 cm
+/gate/RF29/geometry/setZLength 0.770000 cm
+/gate/RF29/placement/setTranslation -9.803000 0 -2.615000 cm
+/gate/RF29/vis/forceSolid
+/gate/RF29/vis/setColor yellow
+/gate/RF29/repeaters/insert linear
+/gate/RF29/linear/setRepeatNumber 40
+/gate/RF29/linear/setRepeatVector 5 0 0 mm
+/gate/RF29/linear/autoCenter false
+/gate/RF_box/daughters/name RF30
+/gate/RF_box/daughters/insert box
+/gate/RF30/setMaterial Aluminium
+/gate/RF30/geometry/setXLength 0.004000 cm
+/gate/RF30/geometry/setYLength 20 cm
+/gate/RF30/geometry/setZLength 0.792000 cm
+/gate/RF30/placement/setTranslation -9.799000 0 -2.604000 cm
+/gate/RF30/vis/forceSolid
+/gate/RF30/vis/setColor yellow
+/gate/RF30/repeaters/insert linear
+/gate/RF30/linear/setRepeatNumber 40
+/gate/RF30/linear/setRepeatVector 5 0 0 mm
+/gate/RF30/linear/autoCenter false
+/gate/RF_box/daughters/name RF31
+/gate/RF_box/daughters/insert box
+/gate/RF31/setMaterial Aluminium
+/gate/RF31/geometry/setXLength 0.005000 cm
+/gate/RF31/geometry/setYLength 20 cm
+/gate/RF31/geometry/setZLength 0.815000 cm
+/gate/RF31/placement/setTranslation -9.794500 0 -2.592500 cm
+/gate/RF31/vis/forceSolid
+/gate/RF31/vis/setColor yellow
+/gate/RF31/repeaters/insert linear
+/gate/RF31/linear/setRepeatNumber 40
+/gate/RF31/linear/setRepeatVector 5 0 0 mm
+/gate/RF31/linear/autoCenter false
+/gate/RF_box/daughters/name RF32
+/gate/RF_box/daughters/insert box
+/gate/RF32/setMaterial Aluminium
+/gate/RF32/geometry/setXLength 0.004000 cm
+/gate/RF32/geometry/setYLength 20 cm
+/gate/RF32/geometry/setZLength 0.837000 cm
+/gate/RF32/placement/setTranslation -9.790000 0 -2.581500 cm
+/gate/RF32/vis/forceSolid
+/gate/RF32/vis/setColor yellow
+/gate/RF32/repeaters/insert linear
+/gate/RF32/linear/setRepeatNumber 40
+/gate/RF32/linear/setRepeatVector 5 0 0 mm
+/gate/RF32/linear/autoCenter false
+/gate/RF_box/daughters/name RF33
+/gate/RF_box/daughters/insert box
+/gate/RF33/setMaterial Aluminium
+/gate/RF33/geometry/setXLength 0.003000 cm
+/gate/RF33/geometry/setYLength 20 cm
+/gate/RF33/geometry/setZLength 0.860000 cm
+/gate/RF33/placement/setTranslation -9.786500 0 -2.570000 cm
+/gate/RF33/vis/forceSolid
+/gate/RF33/vis/setColor yellow
+/gate/RF33/repeaters/insert linear
+/gate/RF33/linear/setRepeatNumber 40
+/gate/RF33/linear/setRepeatVector 5 0 0 mm
+/gate/RF33/linear/autoCenter false
+/gate/RF_box/daughters/name RF34
+/gate/RF_box/daughters/insert box
+/gate/RF34/setMaterial Aluminium
+/gate/RF34/geometry/setXLength 0.004000 cm
+/gate/RF34/geometry/setYLength 20 cm
+/gate/RF34/geometry/setZLength 0.883000 cm
+/gate/RF34/placement/setTranslation -9.783000 0 -2.558500 cm
+/gate/RF34/vis/forceSolid
+/gate/RF34/vis/setColor yellow
+/gate/RF34/repeaters/insert linear
+/gate/RF34/linear/setRepeatNumber 40
+/gate/RF34/linear/setRepeatVector 5 0 0 mm
+/gate/RF34/linear/autoCenter false
+/gate/RF_box/daughters/name RF35
+/gate/RF_box/daughters/insert box
+/gate/RF35/setMaterial Aluminium
+/gate/RF35/geometry/setXLength 0.005000 cm
+/gate/RF35/geometry/setYLength 20 cm
+/gate/RF35/geometry/setZLength 0.905000 cm
+/gate/RF35/placement/setTranslation -9.778500 0 -2.547500 cm
+/gate/RF35/vis/forceSolid
+/gate/RF35/vis/setColor yellow
+/gate/RF35/repeaters/insert linear
+/gate/RF35/linear/setRepeatNumber 40
+/gate/RF35/linear/setRepeatVector 5 0 0 mm
+/gate/RF35/linear/autoCenter false
+/gate/RF_box/daughters/name RF36
+/gate/RF_box/daughters/insert box
+/gate/RF36/setMaterial Aluminium
+/gate/RF36/geometry/setXLength 0.002000 cm
+/gate/RF36/geometry/setYLength 20 cm
+/gate/RF36/geometry/setZLength 0.928000 cm
+/gate/RF36/placement/setTranslation -9.775000 0 -2.536000 cm
+/gate/RF36/vis/forceSolid
+/gate/RF36/vis/setColor yellow
+/gate/RF36/repeaters/insert linear
+/gate/RF36/linear/setRepeatNumber 40
+/gate/RF36/linear/setRepeatVector 5 0 0 mm
+/gate/RF36/linear/autoCenter false
+/gate/RF_box/daughters/name RF37
+/gate/RF_box/daughters/insert box
+/gate/RF37/setMaterial Aluminium
+/gate/RF37/geometry/setXLength 0.003000 cm
+/gate/RF37/geometry/setYLength 20 cm
+/gate/RF37/geometry/setZLength 0.951000 cm
+/gate/RF37/placement/setTranslation -9.772500 0 -2.524500 cm
+/gate/RF37/vis/forceSolid
+/gate/RF37/vis/setColor yellow
+/gate/RF37/repeaters/insert linear
+/gate/RF37/linear/setRepeatNumber 40
+/gate/RF37/linear/setRepeatVector 5 0 0 mm
+/gate/RF37/linear/autoCenter false
+/gate/RF_box/daughters/name RF38
+/gate/RF_box/daughters/insert box
+/gate/RF38/setMaterial Aluminium
+/gate/RF38/geometry/setXLength 0.008000 cm
+/gate/RF38/geometry/setYLength 20 cm
+/gate/RF38/geometry/setZLength 0.973000 cm
+/gate/RF38/placement/setTranslation -9.767000 0 -2.513500 cm
+/gate/RF38/vis/forceSolid
+/gate/RF38/vis/setColor yellow
+/gate/RF38/repeaters/insert linear
+/gate/RF38/linear/setRepeatNumber 40
+/gate/RF38/linear/setRepeatVector 5 0 0 mm
+/gate/RF38/linear/autoCenter false
+/gate/RF_box/daughters/name RF41
+/gate/RF_box/daughters/insert box
+/gate/RF41/setMaterial Aluminium
+/gate/RF41/geometry/setXLength 0.026000 cm
+/gate/RF41/geometry/setYLength 20 cm
+/gate/RF41/geometry/setZLength 1.041000 cm
+/gate/RF41/placement/setTranslation -9.750000 0 -2.479500 cm
+/gate/RF41/vis/forceSolid
+/gate/RF41/vis/setColor yellow
+/gate/RF41/repeaters/insert linear
+/gate/RF41/linear/setRepeatNumber 40
+/gate/RF41/linear/setRepeatVector 5 0 0 mm
+/gate/RF41/linear/autoCenter false
+/gate/RF_box/daughters/name RF44
+/gate/RF_box/daughters/insert box
+/gate/RF44/setMaterial Aluminium
+/gate/RF44/geometry/setXLength 0.008000 cm
+/gate/RF44/geometry/setYLength 20 cm
+/gate/RF44/geometry/setZLength 0.973000 cm
+/gate/RF44/placement/setTranslation -9.733000 0 -2.513500 cm
+/gate/RF44/vis/forceSolid
+/gate/RF44/vis/setColor yellow
+/gate/RF44/repeaters/insert linear
+/gate/RF44/linear/setRepeatNumber 40
+/gate/RF44/linear/setRepeatVector 5 0 0 mm
+/gate/RF44/linear/autoCenter false
+/gate/RF_box/daughters/name RF45
+/gate/RF_box/daughters/insert box
+/gate/RF45/setMaterial Aluminium
+/gate/RF45/geometry/setXLength 0.003000 cm
+/gate/RF45/geometry/setYLength 20 cm
+/gate/RF45/geometry/setZLength 0.951000 cm
+/gate/RF45/placement/setTranslation -9.727500 0 -2.524500 cm
+/gate/RF45/vis/forceSolid
+/gate/RF45/vis/setColor yellow
+/gate/RF45/repeaters/insert linear
+/gate/RF45/linear/setRepeatNumber 40
+/gate/RF45/linear/setRepeatVector 5 0 0 mm
+/gate/RF45/linear/autoCenter false
+/gate/RF_box/daughters/name RF46
+/gate/RF_box/daughters/insert box
+/gate/RF46/setMaterial Aluminium
+/gate/RF46/geometry/setXLength 0.002000 cm
+/gate/RF46/geometry/setYLength 20 cm
+/gate/RF46/geometry/setZLength 0.928000 cm
+/gate/RF46/placement/setTranslation -9.725000 0 -2.536000 cm
+/gate/RF46/vis/forceSolid
+/gate/RF46/vis/setColor yellow
+/gate/RF46/repeaters/insert linear
+/gate/RF46/linear/setRepeatNumber 40
+/gate/RF46/linear/setRepeatVector 5 0 0 mm
+/gate/RF46/linear/autoCenter false
+/gate/RF_box/daughters/name RF47
+/gate/RF_box/daughters/insert box
+/gate/RF47/setMaterial Aluminium
+/gate/RF47/geometry/setXLength 0.005000 cm
+/gate/RF47/geometry/setYLength 20 cm
+/gate/RF47/geometry/setZLength 0.905000 cm
+/gate/RF47/placement/setTranslation -9.721500 0 -2.547500 cm
+/gate/RF47/vis/forceSolid
+/gate/RF47/vis/setColor yellow
+/gate/RF47/repeaters/insert linear
+/gate/RF47/linear/setRepeatNumber 40
+/gate/RF47/linear/setRepeatVector 5 0 0 mm
+/gate/RF47/linear/autoCenter false
+/gate/RF_box/daughters/name RF48
+/gate/RF_box/daughters/insert box
+/gate/RF48/setMaterial Aluminium
+/gate/RF48/geometry/setXLength 0.004000 cm
+/gate/RF48/geometry/setYLength 20 cm
+/gate/RF48/geometry/setZLength 0.883000 cm
+/gate/RF48/placement/setTranslation -9.717000 0 -2.558500 cm
+/gate/RF48/vis/forceSolid
+/gate/RF48/vis/setColor yellow
+/gate/RF48/repeaters/insert linear
+/gate/RF48/linear/setRepeatNumber 40
+/gate/RF48/linear/setRepeatVector 5 0 0 mm
+/gate/RF48/linear/autoCenter false
+/gate/RF_box/daughters/name RF49
+/gate/RF_box/daughters/insert box
+/gate/RF49/setMaterial Aluminium
+/gate/RF49/geometry/setXLength 0.003000 cm
+/gate/RF49/geometry/setYLength 20 cm
+/gate/RF49/geometry/setZLength 0.860000 cm
+/gate/RF49/placement/setTranslation -9.713500 0 -2.570000 cm
+/gate/RF49/vis/forceSolid
+/gate/RF49/vis/setColor yellow
+/gate/RF49/repeaters/insert linear
+/gate/RF49/linear/setRepeatNumber 40
+/gate/RF49/linear/setRepeatVector 5 0 0 mm
+/gate/RF49/linear/autoCenter false
+/gate/RF_box/daughters/name RF50
+/gate/RF_box/daughters/insert box
+/gate/RF50/setMaterial Aluminium
+/gate/RF50/geometry/setXLength 0.004000 cm
+/gate/RF50/geometry/setYLength 20 cm
+/gate/RF50/geometry/setZLength 0.837000 cm
+/gate/RF50/placement/setTranslation -9.710000 0 -2.581500 cm
+/gate/RF50/vis/forceSolid
+/gate/RF50/vis/setColor yellow
+/gate/RF50/repeaters/insert linear
+/gate/RF50/linear/setRepeatNumber 40
+/gate/RF50/linear/setRepeatVector 5 0 0 mm
+/gate/RF50/linear/autoCenter false
+/gate/RF_box/daughters/name RF51
+/gate/RF_box/daughters/insert box
+/gate/RF51/setMaterial Aluminium
+/gate/RF51/geometry/setXLength 0.005000 cm
+/gate/RF51/geometry/setYLength 20 cm
+/gate/RF51/geometry/setZLength 0.815000 cm
+/gate/RF51/placement/setTranslation -9.705500 0 -2.592500 cm
+/gate/RF51/vis/forceSolid
+/gate/RF51/vis/setColor yellow
+/gate/RF51/repeaters/insert linear
+/gate/RF51/linear/setRepeatNumber 40
+/gate/RF51/linear/setRepeatVector 5 0 0 mm
+/gate/RF51/linear/autoCenter false
+/gate/RF_box/daughters/name RF52
+/gate/RF_box/daughters/insert box
+/gate/RF52/setMaterial Aluminium
+/gate/RF52/geometry/setXLength 0.004000 cm
+/gate/RF52/geometry/setYLength 20 cm
+/gate/RF52/geometry/setZLength 0.792000 cm
+/gate/RF52/placement/setTranslation -9.701000 0 -2.604000 cm
+/gate/RF52/vis/forceSolid
+/gate/RF52/vis/setColor yellow
+/gate/RF52/repeaters/insert linear
+/gate/RF52/linear/setRepeatNumber 40
+/gate/RF52/linear/setRepeatVector 5 0 0 mm
+/gate/RF52/linear/autoCenter false
+/gate/RF_box/daughters/name RF53
+/gate/RF_box/daughters/insert box
+/gate/RF53/setMaterial Aluminium
+/gate/RF53/geometry/setXLength 0.004000 cm
+/gate/RF53/geometry/setYLength 20 cm
+/gate/RF53/geometry/setZLength 0.770000 cm
+/gate/RF53/placement/setTranslation -9.697000 0 -2.615000 cm
+/gate/RF53/vis/forceSolid
+/gate/RF53/vis/setColor yellow
+/gate/RF53/repeaters/insert linear
+/gate/RF53/linear/setRepeatNumber 40
+/gate/RF53/linear/setRepeatVector 5 0 0 mm
+/gate/RF53/linear/autoCenter false
+/gate/RF_box/daughters/name RF54
+/gate/RF_box/daughters/insert box
+/gate/RF54/setMaterial Aluminium
+/gate/RF54/geometry/setXLength 0.004000 cm
+/gate/RF54/geometry/setYLength 20 cm
+/gate/RF54/geometry/setZLength 0.747000 cm
+/gate/RF54/placement/setTranslation -9.693000 0 -2.626500 cm
+/gate/RF54/vis/forceSolid
+/gate/RF54/vis/setColor yellow
+/gate/RF54/repeaters/insert linear
+/gate/RF54/linear/setRepeatNumber 40
+/gate/RF54/linear/setRepeatVector 5 0 0 mm
+/gate/RF54/linear/autoCenter false
+/gate/RF_box/daughters/name RF55
+/gate/RF_box/daughters/insert box
+/gate/RF55/setMaterial Aluminium
+/gate/RF55/geometry/setXLength 0.004000 cm
+/gate/RF55/geometry/setYLength 20 cm
+/gate/RF55/geometry/setZLength 0.724000 cm
+/gate/RF55/placement/setTranslation -9.689000 0 -2.638000 cm
+/gate/RF55/vis/forceSolid
+/gate/RF55/vis/setColor yellow
+/gate/RF55/repeaters/insert linear
+/gate/RF55/linear/setRepeatNumber 40
+/gate/RF55/linear/setRepeatVector 5 0 0 mm
+/gate/RF55/linear/autoCenter false
+/gate/RF_box/daughters/name RF56
+/gate/RF_box/daughters/insert box
+/gate/RF56/setMaterial Aluminium
+/gate/RF56/geometry/setXLength 0.004000 cm
+/gate/RF56/geometry/setYLength 20 cm
+/gate/RF56/geometry/setZLength 0.702000 cm
+/gate/RF56/placement/setTranslation -9.685000 0 -2.649000 cm
+/gate/RF56/vis/forceSolid
+/gate/RF56/vis/setColor yellow
+/gate/RF56/repeaters/insert linear
+/gate/RF56/linear/setRepeatNumber 40
+/gate/RF56/linear/setRepeatVector 5 0 0 mm
+/gate/RF56/linear/autoCenter false
+/gate/RF_box/daughters/name RF57
+/gate/RF_box/daughters/insert box
+/gate/RF57/setMaterial Aluminium
+/gate/RF57/geometry/setXLength 0.005000 cm
+/gate/RF57/geometry/setYLength 20 cm
+/gate/RF57/geometry/setZLength 0.679000 cm
+/gate/RF57/placement/setTranslation -9.680500 0 -2.660500 cm
+/gate/RF57/vis/forceSolid
+/gate/RF57/vis/setColor yellow
+/gate/RF57/repeaters/insert linear
+/gate/RF57/linear/setRepeatNumber 40
+/gate/RF57/linear/setRepeatVector 5 0 0 mm
+/gate/RF57/linear/autoCenter false
+/gate/RF_box/daughters/name RF58
+/gate/RF_box/daughters/insert box
+/gate/RF58/setMaterial Aluminium
+/gate/RF58/geometry/setXLength 0.004000 cm
+/gate/RF58/geometry/setYLength 20 cm
+/gate/RF58/geometry/setZLength 0.656000 cm
+/gate/RF58/placement/setTranslation -9.676000 0 -2.672000 cm
+/gate/RF58/vis/forceSolid
+/gate/RF58/vis/setColor yellow
+/gate/RF58/repeaters/insert linear
+/gate/RF58/linear/setRepeatNumber 40
+/gate/RF58/linear/setRepeatVector 5 0 0 mm
+/gate/RF58/linear/autoCenter false
+/gate/RF_box/daughters/name RF59
+/gate/RF_box/daughters/insert box
+/gate/RF59/setMaterial Aluminium
+/gate/RF59/geometry/setXLength 0.005000 cm
+/gate/RF59/geometry/setYLength 20 cm
+/gate/RF59/geometry/setZLength 0.634000 cm
+/gate/RF59/placement/setTranslation -9.671500 0 -2.683000 cm
+/gate/RF59/vis/forceSolid
+/gate/RF59/vis/setColor yellow
+/gate/RF59/repeaters/insert linear
+/gate/RF59/linear/setRepeatNumber 40
+/gate/RF59/linear/setRepeatVector 5 0 0 mm
+/gate/RF59/linear/autoCenter false
+/gate/RF_box/daughters/name RF60
+/gate/RF_box/daughters/insert box
+/gate/RF60/setMaterial Aluminium
+/gate/RF60/geometry/setXLength 0.004000 cm
+/gate/RF60/geometry/setYLength 20 cm
+/gate/RF60/geometry/setZLength 0.611000 cm
+/gate/RF60/placement/setTranslation -9.667000 0 -2.694500 cm
+/gate/RF60/vis/forceSolid
+/gate/RF60/vis/setColor yellow
+/gate/RF60/repeaters/insert linear
+/gate/RF60/linear/setRepeatNumber 40
+/gate/RF60/linear/setRepeatVector 5 0 0 mm
+/gate/RF60/linear/autoCenter false
+/gate/RF_box/daughters/name RF61
+/gate/RF_box/daughters/insert box
+/gate/RF61/setMaterial Aluminium
+/gate/RF61/geometry/setXLength 0.005000 cm
+/gate/RF61/geometry/setYLength 20 cm
+/gate/RF61/geometry/setZLength 0.589000 cm
+/gate/RF61/placement/setTranslation -9.662500 0 -2.705500 cm
+/gate/RF61/vis/forceSolid
+/gate/RF61/vis/setColor yellow
+/gate/RF61/repeaters/insert linear
+/gate/RF61/linear/setRepeatNumber 40
+/gate/RF61/linear/setRepeatVector 5 0 0 mm
+/gate/RF61/linear/autoCenter false
+/gate/RF_box/daughters/name RF62
+/gate/RF_box/daughters/insert box
+/gate/RF62/setMaterial Aluminium
+/gate/RF62/geometry/setXLength 0.005000 cm
+/gate/RF62/geometry/setYLength 20 cm
+/gate/RF62/geometry/setZLength 0.566000 cm
+/gate/RF62/placement/setTranslation -9.657500 0 -2.717000 cm
+/gate/RF62/vis/forceSolid
+/gate/RF62/vis/setColor yellow
+/gate/RF62/repeaters/insert linear
+/gate/RF62/linear/setRepeatNumber 40
+/gate/RF62/linear/setRepeatVector 5 0 0 mm
+/gate/RF62/linear/autoCenter false
+/gate/RF_box/daughters/name RF63
+/gate/RF_box/daughters/insert box
+/gate/RF63/setMaterial Aluminium
+/gate/RF63/geometry/setXLength 0.005000 cm
+/gate/RF63/geometry/setYLength 20 cm
+/gate/RF63/geometry/setZLength 0.543000 cm
+/gate/RF63/placement/setTranslation -9.652500 0 -2.728500 cm
+/gate/RF63/vis/forceSolid
+/gate/RF63/vis/setColor yellow
+/gate/RF63/repeaters/insert linear
+/gate/RF63/linear/setRepeatNumber 40
+/gate/RF63/linear/setRepeatVector 5 0 0 mm
+/gate/RF63/linear/autoCenter false
+/gate/RF_box/daughters/name RF64
+/gate/RF_box/daughters/insert box
+/gate/RF64/setMaterial Aluminium
+/gate/RF64/geometry/setXLength 0.005000 cm
+/gate/RF64/geometry/setYLength 20 cm
+/gate/RF64/geometry/setZLength 0.521000 cm
+/gate/RF64/placement/setTranslation -9.647500 0 -2.739500 cm
+/gate/RF64/vis/forceSolid
+/gate/RF64/vis/setColor yellow
+/gate/RF64/repeaters/insert linear
+/gate/RF64/linear/setRepeatNumber 40
+/gate/RF64/linear/setRepeatVector 5 0 0 mm
+/gate/RF64/linear/autoCenter false
+/gate/RF_box/daughters/name RF65
+/gate/RF_box/daughters/insert box
+/gate/RF65/setMaterial Aluminium
+/gate/RF65/geometry/setXLength 0.005000 cm
+/gate/RF65/geometry/setYLength 20 cm
+/gate/RF65/geometry/setZLength 0.498000 cm
+/gate/RF65/placement/setTranslation -9.642500 0 -2.751000 cm
+/gate/RF65/vis/forceSolid
+/gate/RF65/vis/setColor yellow
+/gate/RF65/repeaters/insert linear
+/gate/RF65/linear/setRepeatNumber 40
+/gate/RF65/linear/setRepeatVector 5 0 0 mm
+/gate/RF65/linear/autoCenter false
+/gate/RF_box/daughters/name RF66
+/gate/RF_box/daughters/insert box
+/gate/RF66/setMaterial Aluminium
+/gate/RF66/geometry/setXLength 0.005000 cm
+/gate/RF66/geometry/setYLength 20 cm
+/gate/RF66/geometry/setZLength 0.475000 cm
+/gate/RF66/placement/setTranslation -9.637500 0 -2.762500 cm
+/gate/RF66/vis/forceSolid
+/gate/RF66/vis/setColor yellow
+/gate/RF66/repeaters/insert linear
+/gate/RF66/linear/setRepeatNumber 40
+/gate/RF66/linear/setRepeatVector 5 0 0 mm
+/gate/RF66/linear/autoCenter false
+/gate/RF_box/daughters/name RF67
+/gate/RF_box/daughters/insert box
+/gate/RF67/setMaterial Aluminium
+/gate/RF67/geometry/setXLength 0.006000 cm
+/gate/RF67/geometry/setYLength 20 cm
+/gate/RF67/geometry/setZLength 0.453000 cm
+/gate/RF67/placement/setTranslation -9.632000 0 -2.773500 cm
+/gate/RF67/vis/forceSolid
+/gate/RF67/vis/setColor yellow
+/gate/RF67/repeaters/insert linear
+/gate/RF67/linear/setRepeatNumber 40
+/gate/RF67/linear/setRepeatVector 5 0 0 mm
+/gate/RF67/linear/autoCenter false
+/gate/RF_box/daughters/name RF68
+/gate/RF_box/daughters/insert box
+/gate/RF68/setMaterial Aluminium
+/gate/RF68/geometry/setXLength 0.005000 cm
+/gate/RF68/geometry/setYLength 20 cm
+/gate/RF68/geometry/setZLength 0.430000 cm
+/gate/RF68/placement/setTranslation -9.626500 0 -2.785000 cm
+/gate/RF68/vis/forceSolid
+/gate/RF68/vis/setColor yellow
+/gate/RF68/repeaters/insert linear
+/gate/RF68/linear/setRepeatNumber 40
+/gate/RF68/linear/setRepeatVector 5 0 0 mm
+/gate/RF68/linear/autoCenter false
+/gate/RF_box/daughters/name RF69
+/gate/RF_box/daughters/insert box
+/gate/RF69/setMaterial Aluminium
+/gate/RF69/geometry/setXLength 0.006000 cm
+/gate/RF69/geometry/setYLength 20 cm
+/gate/RF69/geometry/setZLength 0.407000 cm
+/gate/RF69/placement/setTranslation -9.621000 0 -2.796500 cm
+/gate/RF69/vis/forceSolid
+/gate/RF69/vis/setColor yellow
+/gate/RF69/repeaters/insert linear
+/gate/RF69/linear/setRepeatNumber 40
+/gate/RF69/linear/setRepeatVector 5 0 0 mm
+/gate/RF69/linear/autoCenter false
+/gate/RF_box/daughters/name RF70
+/gate/RF_box/daughters/insert box
+/gate/RF70/setMaterial Aluminium
+/gate/RF70/geometry/setXLength 0.006000 cm
+/gate/RF70/geometry/setYLength 20 cm
+/gate/RF70/geometry/setZLength 0.385000 cm
+/gate/RF70/placement/setTranslation -9.615000 0 -2.807500 cm
+/gate/RF70/vis/forceSolid
+/gate/RF70/vis/setColor yellow
+/gate/RF70/repeaters/insert linear
+/gate/RF70/linear/setRepeatNumber 40
+/gate/RF70/linear/setRepeatVector 5 0 0 mm
+/gate/RF70/linear/autoCenter false
+/gate/RF_box/daughters/name RF71
+/gate/RF_box/daughters/insert box
+/gate/RF71/setMaterial Aluminium
+/gate/RF71/geometry/setXLength 0.006000 cm
+/gate/RF71/geometry/setYLength 20 cm
+/gate/RF71/geometry/setZLength 0.362000 cm
+/gate/RF71/placement/setTranslation -9.609000 0 -2.819000 cm
+/gate/RF71/vis/forceSolid
+/gate/RF71/vis/setColor yellow
+/gate/RF71/repeaters/insert linear
+/gate/RF71/linear/setRepeatNumber 40
+/gate/RF71/linear/setRepeatVector 5 0 0 mm
+/gate/RF71/linear/autoCenter false
+/gate/RF_box/daughters/name RF72
+/gate/RF_box/daughters/insert box
+/gate/RF72/setMaterial Aluminium
+/gate/RF72/geometry/setXLength 0.006000 cm
+/gate/RF72/geometry/setYLength 20 cm
+/gate/RF72/geometry/setZLength 0.340000 cm
+/gate/RF72/placement/setTranslation -9.603000 0 -2.830000 cm
+/gate/RF72/vis/forceSolid
+/gate/RF72/vis/setColor yellow
+/gate/RF72/repeaters/insert linear
+/gate/RF72/linear/setRepeatNumber 40
+/gate/RF72/linear/setRepeatVector 5 0 0 mm
+/gate/RF72/linear/autoCenter false
+/gate/RF_box/daughters/name RF73
+/gate/RF_box/daughters/insert box
+/gate/RF73/setMaterial Aluminium
+/gate/RF73/geometry/setXLength 0.007000 cm
+/gate/RF73/geometry/setYLength 20 cm
+/gate/RF73/geometry/setZLength 0.317000 cm
+/gate/RF73/placement/setTranslation -9.596500 0 -2.841500 cm
+/gate/RF73/vis/forceSolid
+/gate/RF73/vis/setColor yellow
+/gate/RF73/repeaters/insert linear
+/gate/RF73/linear/setRepeatNumber 40
+/gate/RF73/linear/setRepeatVector 5 0 0 mm
+/gate/RF73/linear/autoCenter false
+/gate/RF_box/daughters/name RF74
+/gate/RF_box/daughters/insert box
+/gate/RF74/setMaterial Aluminium
+/gate/RF74/geometry/setXLength 0.007000 cm
+/gate/RF74/geometry/setYLength 20 cm
+/gate/RF74/geometry/setZLength 0.294000 cm
+/gate/RF74/placement/setTranslation -9.589500 0 -2.853000 cm
+/gate/RF74/vis/forceSolid
+/gate/RF74/vis/setColor yellow
+/gate/RF74/repeaters/insert linear
+/gate/RF74/linear/setRepeatNumber 40
+/gate/RF74/linear/setRepeatVector 5 0 0 mm
+/gate/RF74/linear/autoCenter false
+/gate/RF_box/daughters/name RF75
+/gate/RF_box/daughters/insert box
+/gate/RF75/setMaterial Aluminium
+/gate/RF75/geometry/setXLength 0.007000 cm
+/gate/RF75/geometry/setYLength 20 cm
+/gate/RF75/geometry/setZLength 0.272000 cm
+/gate/RF75/placement/setTranslation -9.582500 0 -2.864000 cm
+/gate/RF75/vis/forceSolid
+/gate/RF75/vis/setColor yellow
+/gate/RF75/repeaters/insert linear
+/gate/RF75/linear/setRepeatNumber 40
+/gate/RF75/linear/setRepeatVector 5 0 0 mm
+/gate/RF75/linear/autoCenter false
+/gate/RF_box/daughters/name RF76
+/gate/RF_box/daughters/insert box
+/gate/RF76/setMaterial Aluminium
+/gate/RF76/geometry/setXLength 0.006000 cm
+/gate/RF76/geometry/setYLength 20 cm
+/gate/RF76/geometry/setZLength 0.249000 cm
+/gate/RF76/placement/setTranslation -9.576000 0 -2.875500 cm
+/gate/RF76/vis/forceSolid
+/gate/RF76/vis/setColor yellow
+/gate/RF76/repeaters/insert linear
+/gate/RF76/linear/setRepeatNumber 40
+/gate/RF76/linear/setRepeatVector 5 0 0 mm
+/gate/RF76/linear/autoCenter false
+/gate/RF_box/daughters/name RF77
+/gate/RF_box/daughters/insert box
+/gate/RF77/setMaterial Aluminium
+/gate/RF77/geometry/setXLength 0.011000 cm
+/gate/RF77/geometry/setYLength 20 cm
+/gate/RF77/geometry/setZLength 0.226000 cm
+/gate/RF77/placement/setTranslation -9.567500 0 -2.887000 cm
+/gate/RF77/vis/forceSolid
+/gate/RF77/vis/setColor yellow
+/gate/RF77/repeaters/insert linear
+/gate/RF77/linear/setRepeatNumber 40
+/gate/RF77/linear/setRepeatVector 5 0 0 mm
+/gate/RF77/linear/autoCenter false
+/gate/RF_box/daughters/name RF78
+/gate/RF_box/daughters/insert box
+/gate/RF78/setMaterial Aluminium
+/gate/RF78/geometry/setXLength 0.012000 cm
+/gate/RF78/geometry/setYLength 20 cm
+/gate/RF78/geometry/setZLength 0.204000 cm
+/gate/RF78/placement/setTranslation -9.556000 0 -2.898000 cm
+/gate/RF78/vis/forceSolid
+/gate/RF78/vis/setColor yellow
+/gate/RF78/repeaters/insert linear
+/gate/RF78/linear/setRepeatNumber 40
+/gate/RF78/linear/setRepeatVector 5 0 0 mm
+/gate/RF78/linear/autoCenter false
+/gate/RF_box/daughters/name RF79
+/gate/RF_box/daughters/insert box
+/gate/RF79/setMaterial Aluminium
+/gate/RF79/geometry/setXLength 0.002000 cm
+/gate/RF79/geometry/setYLength 20 cm
+/gate/RF79/geometry/setZLength 0.181000 cm
+/gate/RF79/placement/setTranslation -9.549000 0 -2.909500 cm
+/gate/RF79/vis/forceSolid
+/gate/RF79/vis/setColor yellow
+/gate/RF79/repeaters/insert linear
+/gate/RF79/linear/setRepeatNumber 40
+/gate/RF79/linear/setRepeatVector 5 0 0 mm
+/gate/RF79/linear/autoCenter false
+/gate/RF_box/daughters/name RF80
+/gate/RF_box/daughters/insert box
+/gate/RF80/setMaterial Aluminium
+/gate/RF80/geometry/setXLength 0.007000 cm
+/gate/RF80/geometry/setYLength 20 cm
+/gate/RF80/geometry/setZLength 0.158000 cm
+/gate/RF80/placement/setTranslation -9.544500 0 -2.921000 cm
+/gate/RF80/vis/forceSolid
+/gate/RF80/vis/setColor yellow
+/gate/RF80/repeaters/insert linear
+/gate/RF80/linear/setRepeatNumber 40
+/gate/RF80/linear/setRepeatVector 5 0 0 mm
+/gate/RF80/linear/autoCenter false
+/gate/RF_box/daughters/name RF81
+/gate/RF_box/daughters/insert box
+/gate/RF81/setMaterial Aluminium
+/gate/RF81/geometry/setXLength 0.041000 cm
+/gate/RF81/geometry/setYLength 20 cm
+/gate/RF81/geometry/setZLength 0.136000 cm
+/gate/RF81/placement/setTranslation -9.520500 0 -2.932000 cm
+/gate/RF81/vis/forceSolid
+/gate/RF81/vis/setColor yellow
+/gate/RF81/repeaters/insert linear
+/gate/RF81/linear/setRepeatNumber 40
+/gate/RF81/linear/setRepeatVector 5 0 0 mm
+/gate/RF81/linear/autoCenter false
+
+/gate/RF_box/placement/setRotationAxis 0 1 0
+/gate/RF_box/placement/setRotationAngle 180 deg
+/gate/world/daughters/name mul_collimator
+/gate/world/daughters/insert box
+/gate/mul_collimator/geometry/setXLength 200 mm
+/gate/mul_collimator/geometry/setYLength 200 mm
+/gate/mul_collimator/geometry/setZLength 64.8 mm
+/gate/mul_collimator/placement/setTranslation 0 0 -720 mm
+/gate/mul_collimator/setMaterial MLC
+/gate/mul_collimator/vis/forceWireframe
+/gate/mul_collimator/daughters/name openhole
+/gate/mul_collimator/daughters/insert box
+/gate/openhole/geometry/setXLength 100 mm
+/gate/openhole/geometry/setYLength 100 mm
+/gate/openhole/geometry/setZLength 64.8 mm
+/gate/openhole/placement/setTranslation 0 0 0 mm
+/gate/openhole/setMaterial Air
+/gate/openhole/vis/forceSolid
+
+/gate/world/daughters/name watertank
+/gate/world/daughters/insert box
+/gate/watertank/setMaterial Water
+/gate/watertank/geometry/setXLength 20.0 cm
+/gate/watertank/geometry/setYLength 20.0 cm
+/gate/watertank/geometry/setZLength 35.0 cm
+/gate/watertank/placement/setTranslation 0 0 0 cm
+/gate/watertank/vis/forceWireframe
+/gate/watertank/vis/setColor blue
+
+/gate/physics/addPhysicsList QGSP_BERT_HP_EMY
+/gate/geometry/setIonisationPotential Water 75 eV
+/gate/physics/displayCuts
+/gate/physics/print output/physics.txt
+/gate/physics/Gamma/SetCutInRegion world 10 m
+/gate/physics/Electron/SetCutInRegion world 10 m
+/gate/physics/Positron/SetCutInRegion world 10 m
+/gate/physics/Gamma/SetCutInRegion pre_collimator 1 mm
+/gate/physics/Electron/SetCutInRegion pre_collimator 1 mm
+/gate/physics/Positron/SetCutInRegion pre_collimator 1 mm
+/gate/physics/Gamma/SetCutInRegion pre_hole 10 m
+/gate/physics/Electron/SetCutInRegion pre_hole 10 m
+/gate/physics/Positron/SetCutInRegion pre_hole 10 m
+/gate/physics/Gamma/SetCutInRegion RF_box 1 mm
+/gate/physics/Electron/SetCutInRegion RF_box 1 mm
+/gate/physics/Positron/SetCutInRegion RF_box 1 mm
+/gate/physics/Gamma/SetCutInRegion mul_collimator 1 mm
+/gate/physics/Electron/SetCutInRegion mul_collimator 1 mm
+/gate/physics/Positron/SetCutInRegion mul_collimator 1 mm
+/gate/physics/Gamma/SetCutInRegion watertank 1 mm
+/gate/physics/Electron/SetCutInRegion watertank 1 mm
+/gate/physics/Positron/SetCutInRegion watertank 1 mm
+/gate/physics/SetMaxStepSizeInRegion world 1 cm
+/gate/physics/SetMaxStepSizeInRegion pre_collimator 1 mm
+/gate/physics/SetMaxStepSizeInRegion RF_box 1 mm
+/gate/physics/SetMaxStepSizeInRegion mul_collimator 1 mm
+/gate/physics/SetMaxStepSizeInRegion watertank 1mm
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter deuteron
+/gate/physics/ActivateStepLimiter triton
+/gate/physics/ActivateStepLimiter alpha
+/gate/physics/ActivateStepLimiter GenericIon
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter e-
+/gate/physics/displayCuts
+/gate/actor/addActor DoseActor doseDistribution
+/gate/actor/doseDistribution/save output/braggpeak_water31.root
+/gate/actor/doseDistribution/attachTo watertank
+/gate/actor/doseDistribution/stepHitType random
+/gate/actor/doseDistribution/setPosition 0 0 0 mm
+/gate/actor/doseDistribution/setVoxelSize 150 150 0.2 mm
+/gate/actor/doseDistribution/enableEdep false
+/gate/actor/doseDistribution/enableUncertaintyEdep false
+/gate/actor/doseDistribution/enableDose true
+/gate/actor/doseDistribution/enableSquaredDose false
+/gate/actor/doseDistribution/enableUncertaintyDose false
+/gate/actor/doseDistribution/enableNumberOfHits false
+/gate/actor/doseDistribution/saveEveryNSeconds 20
+
+/gate/run/initialize
+/gate/source/addSource C12 gps
+/gate/source/C12/gps/particle ion
+/gate/source/C12/gps/ion 6 12
+/gate/source/C12/gps/ene/type Gauss
+/gate/source/C12/gps/energy 4200 MeV
+/gate/source/C12/gps/ene/sigma 0.0 MeV
+/gate/source/C12/gps/pos/type Plane
+/gate/source/C12/gps/pos/shape Square
+/gate/source/C12/gps/pos/halfx 7.5 cm
+/gate/source/C12/gps/pos/halfy 7.5 cm
+/gate/source/C12/gps/ang/minphi 0 deg
+/gate/source/C12/gps/ang/maxphi 360 deg
+/gate/source/C12/gps/ang/mintheta 0 deg
+/gate/source/C12/gps/ang/maxtheta 0 deg
+/gate/source/C12/gps/pos/centre 0. 0. -450 cm
+/gate/source/C12/gps/direction 0 0 1
+/gate/random/setEngineName MersenneTwister
+
+/gate/application/setTotalNumberOfPrimaries 209000
+/gate/random/setEngineSeed 3194669554780134456
+/gate/application/setTimeStart 0. s
+/gate/application/addSlice     1. s
+/gate/application/startDAQCluster 0.625 0.645833 0 s
+

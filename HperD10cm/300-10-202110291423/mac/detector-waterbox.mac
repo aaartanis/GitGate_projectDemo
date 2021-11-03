@@ -1,0 +1,20 @@
+#=====================================================
+# OUTPUT - DETECTOR
+#=====================================================
+/gate/actor/addActor                               DoseActor  doseDistribution
+/gate/actor/doseDistribution/save                  output/braggpeak_water.root
+/gate/actor/doseDistribution/attachTo    	   watertank
+/gate/actor/doseDistribution/stepHitType           random
+/gate/actor/doseDistribution/setPosition           0 0 0 mm
+/gate/actor/doseDistribution/setVoxelSize          150 150 0.2 mm
+#/gate/actor/doseDistribution/setResolution	   300 1 1
+/gate/actor/doseDistribution/enableEdep            false
+/gate/actor/doseDistribution/enableUncertaintyEdep false
+/gate/actor/doseDistribution/enableDose            true 
+/gate/actor/doseDistribution/enableSquaredDose     false
+/gate/actor/doseDistribution/enableUncertaintyDose false
+/gate/actor/doseDistribution/enableNumberOfHits    false
+/gate/actor/doseDistribution/saveEveryNSeconds     20
+
+
+
