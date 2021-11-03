@@ -1,0 +1,97 @@
+#! /bin/sh
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main1.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main2.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main3.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main4.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main5.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main6.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main7.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main8.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main9.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main10.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main11.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main12.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main13.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main14.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main15.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main16.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main17.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main18.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main19.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main20.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main21.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main22.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main23.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main24.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main25.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main26.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main27.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main28.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main29.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main30.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main31.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main32.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main33.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main34.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main35.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main36.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main37.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main38.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main39.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main40.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main41.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main42.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main43.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main44.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main45.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main46.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main47.mac &
+sleep 10s
+/home/aaa/Software/GATE/gate-install/bin/Gate /home/aaa/Software/GATE/.Gate//main37//main48.mac &
+sleep 10s

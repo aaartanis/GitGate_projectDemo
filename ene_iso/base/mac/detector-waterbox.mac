@@ -1,0 +1,230 @@
+#=====================================================
+# OUTPUT - DETECTOR
+#=====================================================
+
+#receptor0
+/gate/actor/addActor                                 EnergySpectrumActor  receptor0
+/gate/actor/receptor0/save                           output/iso/0_receptor.root
+/gate/actor/receptor0/attachTo                       volume0
+/gate/actor/receptor0/addFilter                      particleFilter
+/gate/actor/receptor0/particleFilter/addParticle     neutron
+/gate/actor/receptor0/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor0/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor0/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor0/setLogBinWidth		     true
+/gate/actor/receptor0/enableFluenceTrackSpectrum     true
+/gate/actor/receptor0/enableEdepSpectrum             false
+/gate/actor/receptor0/enableNbPartSpectrum           true
+
+#receptor1
+/gate/actor/addActor                                 EnergySpectrumActor  receptor1
+/gate/actor/receptor1/save                           output/0deg/25cm/1_receptor.root
+/gate/actor/receptor1/attachTo                       volume1
+/gate/actor/receptor1/addFilter                      particleFilter
+/gate/actor/receptor1/particleFilter/addParticle     neutron
+/gate/actor/receptor1/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor1/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor1/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor1/setLogBinWidth		      true
+/gate/actor/receptor1/enableFluenceTrackSpectrum     true
+/gate/actor/receptor1/enableEdepSpectrum             false
+/gate/actor/receptor1/enableNbPartSpectrum           true
+
+#receptor2
+/gate/actor/addActor                                 EnergySpectrumActor  receptor2
+/gate/actor/receptor2/save                           output/0deg/50cm/2_receptor.root
+/gate/actor/receptor2/attachTo                       volume2
+/gate/actor/receptor2/addFilter                      particleFilter
+/gate/actor/receptor2/particleFilter/addParticle     neutron
+/gate/actor/receptor2/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor2/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor2/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor2/setLogBinWidth		      true
+/gate/actor/receptor2/enableFluenceTrackSpectrum     true
+/gate/actor/receptor2/enableEdepSpectrum             false
+/gate/actor/receptor2/enableNbPartSpectrum           true
+
+#receptor3
+/gate/actor/addActor                                 EnergySpectrumActor  receptor3
+/gate/actor/receptor3/save                           output/0deg/100cm/3_receptor.root
+/gate/actor/receptor3/attachTo                       volume3
+/gate/actor/receptor3/addFilter                      particleFilter
+/gate/actor/receptor3/particleFilter/addParticle     neutron
+/gate/actor/receptor3/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor3/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor3/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor3/setLogBinWidth		      true
+/gate/actor/receptor3/enableFluenceTrackSpectrum     true
+/gate/actor/receptor3/enableEdepSpectrum             false
+/gate/actor/receptor3/enableNbPartSpectrum           true
+
+#receptor4
+/gate/actor/addActor                                 EnergySpectrumActor  receptor4
+/gate/actor/receptor4/save                           output/0deg/150cm/4_receptor.root
+/gate/actor/receptor4/attachTo                       volume4
+/gate/actor/receptor4/addFilter                      particleFilter
+/gate/actor/receptor4/particleFilter/addParticle     neutron
+/gate/actor/receptor4/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor4/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor4/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor4/setLogBinWidth		      true
+/gate/actor/receptor4/enableFluenceTrackSpectrum     true
+/gate/actor/receptor4/enableEdepSpectrum             false
+/gate/actor/receptor4/enableNbPartSpectrum           true
+
+#receptor5
+/gate/actor/addActor                                 EnergySpectrumActor  receptor5
+/gate/actor/receptor5/save                           output/0deg/200cm/5_receptor.root
+/gate/actor/receptor5/attachTo                       volume5
+/gate/actor/receptor5/addFilter                      particleFilter
+/gate/actor/receptor5/particleFilter/addParticle     neutron
+/gate/actor/receptor5/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor5/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor5/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor5/setLogBinWidth		      true
+/gate/actor/receptor5/enableFluenceTrackSpectrum     true
+/gate/actor/receptor5/enableEdepSpectrum             false
+/gate/actor/receptor5/enableNbPartSpectrum           true
+
+#receptor6
+/gate/actor/addActor                                 EnergySpectrumActor  receptor6
+/gate/actor/receptor6/save                           output/45deg/25cm/6_receptor.root
+/gate/actor/receptor6/attachTo                       volume6
+/gate/actor/receptor6/addFilter                      particleFilter
+/gate/actor/receptor6/particleFilter/addParticle     neutron
+/gate/actor/receptor6/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor6/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor6/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor6/setLogBinWidth		      true
+/gate/actor/receptor6/enableFluenceTrackSpectrum     true
+/gate/actor/receptor6/enableEdepSpectrum             false
+/gate/actor/receptor6/enableNbPartSpectrum           true
+
+#receptor7
+/gate/actor/addActor                                 EnergySpectrumActor  receptor7
+/gate/actor/receptor7/save                           output/45deg/50cm/7_receptor.root
+/gate/actor/receptor7/attachTo                       volume7
+/gate/actor/receptor7/addFilter                      particleFilter
+/gate/actor/receptor7/particleFilter/addParticle     neutron
+/gate/actor/receptor7/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor7/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor7/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor7/setLogBinWidth		      true
+/gate/actor/receptor7/enableFluenceTrackSpectrum     true
+/gate/actor/receptor7/enableEdepSpectrum             false
+/gate/actor/receptor7/enableNbPartSpectrum           true
+
+#receptor8
+/gate/actor/addActor                                 EnergySpectrumActor  receptor8
+/gate/actor/receptor8/save                           output/45deg/100cm/8_receptor.root
+/gate/actor/receptor8/attachTo                       volume8
+/gate/actor/receptor8/addFilter                      particleFilter
+/gate/actor/receptor8/particleFilter/addParticle     neutron
+/gate/actor/receptor8/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor8/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor8/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor8/setLogBinWidth		      true
+/gate/actor/receptor8/enableFluenceTrackSpectrum     true
+/gate/actor/receptor8/enableEdepSpectrum             false
+/gate/actor/receptor8/enableNbPartSpectrum           true
+
+#receptor9
+/gate/actor/addActor                                 EnergySpectrumActor  receptor9
+/gate/actor/receptor9/save                           output/45deg/150cm/9_receptor.root
+/gate/actor/receptor9/attachTo                       volume9
+/gate/actor/receptor9/addFilter                      particleFilter
+/gate/actor/receptor9/particleFilter/addParticle     neutron
+/gate/actor/receptor9/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor9/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor9/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor9/setLogBinWidth		      true
+/gate/actor/receptor9/enableFluenceTrackSpectrum     true
+/gate/actor/receptor9/enableEdepSpectrum             false
+/gate/actor/receptor9/enableNbPartSpectrum           true
+
+#receptor10
+/gate/actor/addActor                                 EnergySpectrumActor  receptor10
+/gate/actor/receptor10/save                           output/45deg/200cm/10_receptor.root
+/gate/actor/receptor10/attachTo                       volume10
+/gate/actor/receptor10/addFilter                      particleFilter
+/gate/actor/receptor10/particleFilter/addParticle     neutron
+/gate/actor/receptor10/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor10/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor10/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor10/setLogBinWidth		      true
+/gate/actor/receptor10/enableFluenceTrackSpectrum     true
+/gate/actor/receptor10/enableEdepSpectrum             false
+/gate/actor/receptor10/enableNbPartSpectrum           true
+
+#receptor11
+/gate/actor/addActor                                 EnergySpectrumActor  receptor11
+/gate/actor/receptor11/save                           output/90deg/25cm/11_receptor.root
+/gate/actor/receptor11/attachTo                       volume11
+/gate/actor/receptor11/addFilter                      particleFilter
+/gate/actor/receptor11/particleFilter/addParticle     neutron
+/gate/actor/receptor11/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor11/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor11/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor11/setLogBinWidth		      true
+/gate/actor/receptor11/enableFluenceTrackSpectrum     true
+/gate/actor/receptor11/enableEdepSpectrum             false
+/gate/actor/receptor11/enableNbPartSpectrum           true
+
+#receptor12
+/gate/actor/addActor                                 EnergySpectrumActor  receptor12
+/gate/actor/receptor12/save                           output/90deg/50cm/12_receptor.root
+/gate/actor/receptor12/attachTo                       volume12
+/gate/actor/receptor12/addFilter                      particleFilter
+/gate/actor/receptor12/particleFilter/addParticle     neutron
+/gate/actor/receptor12/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor12/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor12/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor12/setLogBinWidth		      true
+/gate/actor/receptor12/enableFluenceTrackSpectrum     true
+/gate/actor/receptor12/enableEdepSpectrum             false
+/gate/actor/receptor12/enableNbPartSpectrum           true
+
+#receptor13
+/gate/actor/addActor                                 EnergySpectrumActor  receptor13
+/gate/actor/receptor13/save                           output/90deg/100cm/13_receptor.root
+/gate/actor/receptor13/attachTo                       volume13
+/gate/actor/receptor13/addFilter                      particleFilter
+/gate/actor/receptor13/particleFilter/addParticle     neutron
+/gate/actor/receptor13/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor13/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor13/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor13/setLogBinWidth		      true
+/gate/actor/receptor13/enableFluenceTrackSpectrum     true
+/gate/actor/receptor13/enableEdepSpectrum             false
+/gate/actor/receptor13/enableNbPartSpectrum           true
+
+
+#receptor14
+/gate/actor/addActor                                 EnergySpectrumActor  receptor14
+/gate/actor/receptor14/save                           output/90deg/150cm/14_receptor.root
+/gate/actor/receptor14/attachTo                       volume14
+/gate/actor/receptor14/addFilter                      particleFilter
+/gate/actor/receptor14/particleFilter/addParticle     neutron
+/gate/actor/receptor14/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor14/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor14/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor14/setLogBinWidth		      true
+/gate/actor/receptor14/enableFluenceTrackSpectrum     true
+/gate/actor/receptor14/enableEdepSpectrum             false
+/gate/actor/receptor14/enableNbPartSpectrum           true
+
+#receptor15
+/gate/actor/addActor                                 EnergySpectrumActor  receptor15
+/gate/actor/receptor15/save                           output/90deg/200cm/15_receptor.root
+/gate/actor/receptor15/attachTo                       volume15
+/gate/actor/receptor15/addFilter                      particleFilter
+/gate/actor/receptor15/particleFilter/addParticle     neutron
+/gate/actor/receptor15/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor15/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor15/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor15/setLogBinWidth		      true
+/gate/actor/receptor15/enableFluenceTrackSpectrum     true
+/gate/actor/receptor15/enableEdepSpectrum             false
+/gate/actor/receptor15/enableNbPartSpectrum           true
+
+

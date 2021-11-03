@@ -1,0 +1,183 @@
+#=====================================================
+# VERBOSE and VISUALISATION
+#=====================================================
+
+/control/execute mac/verbose.mac  	
+
+# to use the visualisation :
+#   - uncomment the following line
+#   - use Gate --qt
+#   - in the interface, type /control/execute mac/main.mac
+#/control/execute mac/visu.mac
+
+
+#=====================================================
+# GEOMETRY
+#=====================================================
+
+/gate/geometry/setMaterialDatabase                 data/AF_GateMaterials.db
+
+# WORLD
+/gate/world/setMaterial                      Air
+/gate/world/geometry/setXLength              5.0 m
+/gate/world/geometry/setYLength              5.0 m
+/gate/world/geometry/setZLength              10.0 m
+
+#killactor
+/gate/world/daughters/name              killer
+/gate/world/daughters/insert            box
+/gate/killer/geometry/setXLength        5 m 
+/gate/killer/geometry/setYLength        5 m
+/gate/killer/geometry/setZLength        2 cm
+/gate/killer/placement/setTranslation   0 0 2.2 m
+/gate/killer/setMaterial Air
+/gate/killer/vis/forceSolid
+
+/gate/actor/addActor         KillActor   kill_actor
+/gate/actor/kill_actor/save             output/mykiller.txt
+/gate/actor/kill_actor/attachTo          killer
+
+
+#HIMM
+/control/execute mac/HIMM_room2.mac
+
+
+# Target : choose CT or waterbox
+#/control/execute mac/target-CT.mac
+/control/execute mac/target-waterbox.mac
+
+#/gate/target/placement/setTranslation 0. 0. 0. mm
+
+### rotate the patient
+#/gate/target/placement/setRotationAxis 0 1 0
+#/gate/target/placement/setRotationAngle 90 deg
+
+
+#=====================================================
+# PHYSICS
+#=====================================================
+
+/gate/physics/addPhysicsList QGSP_BERT_HP_EMY
+
+/gate/geometry/setIonisationPotential Water 75 eV
+#/gate/geometry/setIonisationPotential Water 80.8 eV
+/gate/physics/displayCuts
+/gate/physics/print output/physics.txt
+
+#=====================================================
+# CUTS
+#=====================================================
+
+/gate/physics/Gamma/SetCutInRegion      world 10 m
+/gate/physics/Electron/SetCutInRegion   world 10 m
+/gate/physics/Positron/SetCutInRegion   world 10 m
+
+/gate/physics/Gamma/SetCutInRegion      pre_collimator 1 mm
+/gate/physics/Electron/SetCutInRegion   pre_collimator 1 mm
+/gate/physics/Positron/SetCutInRegion   pre_collimator 1 mm
+
+/gate/physics/Gamma/SetCutInRegion      pre_hole 10 m
+/gate/physics/Electron/SetCutInRegion   pre_hole 10 m
+/gate/physics/Positron/SetCutInRegion   pre_hole 10 m
+
+/gate/physics/Gamma/SetCutInRegion      RF_box 1 mm
+/gate/physics/Electron/SetCutInRegion   RF_box 1 mm
+/gate/physics/Positron/SetCutInRegion   RF_box 1 mm
+
+/gate/physics/Gamma/SetCutInRegion      mul_collimator 1 mm
+/gate/physics/Electron/SetCutInRegion   mul_collimator 1 mm
+/gate/physics/Positron/SetCutInRegion   mul_collimator 1 mm
+
+#/gate/physics/Gamma/SetCutInRegion      target 3 mm
+#/gate/physics/Electron/SetCutInRegion   target 3 mm
+#/gate/physics/Positron/SetCutInRegion   target 3 mm
+
+#/gate/physics/Gamma/SetCutInRegion      volume0 3 mm
+#/gate/physics/Electron/SetCutInRegion   volume0 3 mm
+#/gate/physics/Positron/SetCutInRegion   volume0 3 mm
+
+/gate/physics/SetMaxStepSizeInRegion world  1 cm
+/gate/physics/SetMaxStepSizeInRegion pre_collimator  1 mm
+/gate/physics/SetMaxStepSizeInRegion RF_box  1 mm
+/gate/physics/SetMaxStepSizeInRegion mul_collimator  1 mm
+
+/gate/physics/SetMaxStepSizeInRegion volume0 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume1 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume2 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume3 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume4 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume5 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume6 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume7 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume8 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume9 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume10 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume11 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume12 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume13 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume14 1 mm
+/gate/physics/SetMaxStepSizeInRegion volume15 1 mm
+
+
+
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter deuteron
+/gate/physics/ActivateStepLimiter triton
+/gate/physics/ActivateStepLimiter alpha
+/gate/physics/ActivateStepLimiter GenericIon
+
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter e-
+
+# Verbose physic list (uncomment to display)
+/gate/physics/displayCuts
+# /gate/physics/processList Enabled
+# /gate/physics/processList Initialized
+
+#=====================================================
+# OUTPUT - DETECTOR
+#=====================================================
+
+/control/execute mac/detector-waterbox.mac
+#/control/execute mac/detector-CT.mac
+
+
+#=====================================================
+# INITIALISATION
+#=====================================================
+
+/gate/run/initialize
+
+#=====================================================
+# BEAMS
+#=====================================================
+
+
+#Carbon 12 Square
+/gate/source/addSource               C12     gps
+/gate/source/C12/gps/particle        ion
+/gate/source/C12/gps/ion             6 12
+/gate/source/C12/gps/ene/type        Gauss
+/gate/source/C12/gps/energy          2400 MeV
+/gate/source/C12/gps/ene/sigma       0.0 MeV
+/gate/source/C12/gps/pos/type        Plane
+/gate/source/C12/gps/pos/shape       Square
+/gate/source/C12/gps/pos/halfx       7.5 cm
+/gate/source/C12/gps/pos/halfy       7.5 cm
+#/gate/source/C12/gps/pos/type        Point
+#/gate/source/C12/gps/ang/type       iso
+/gate/source/C12/gps/ang/minphi      0 deg
+/gate/source/C12/gps/ang/maxphi      360 deg
+/gate/source/C12/gps/ang/mintheta    0 deg
+/gate/source/C12/gps/ang/maxtheta    0 deg
+/gate/source/C12/gps/pos/centre      0. 0. -450 cm
+/gate/source/C12/gps/direction       0 0 1
+
+#=====================================================
+# START BEAMS
+#=====================================================
+
+/gate/random/setEngineName MersenneTwister
+/gate/random/setEngineSeed auto
+/gate/application/setTotalNumberOfPrimaries 209000
+/gate/application/start
