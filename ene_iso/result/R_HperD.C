@@ -21,7 +21,7 @@ void R_HperD()
     gr1->SetMarkerSize(1.5);
     gr1->SetLineColor(2);
     gr1->SetLineWidth(3);
-    gr1->SetTitle("0#circ 100cm");
+    gr1->SetTitle("0#circ 25cm");
 
 
     ipt->Draw("((EQ1+EQ2)*1e-9/D_p):range*1e-1","location==3","goff");//pSv->mSv
@@ -31,7 +31,7 @@ void R_HperD()
     gr2->SetMarkerSize(1.5);
     gr2->SetLineColor(kBlue);
     gr2->SetLineWidth(3);
-    gr2->SetTitle("0#circ 200cm");
+    gr2->SetTitle("0#circ 100cm");
 
     TMultiGraph *mgp=new TMultiGraph();
     mgp->Add(gr0,"pc");
@@ -49,7 +49,7 @@ void R_HperD()
     TLegend *leg;
     leg=new TLegend(0.2,0.6,0.4,0.8);
     leg->AddEntry(gr0,"Isocenter","pl");
-    leg->AddEntry(gr1,"0#circ 50cm","pl");
+    leg->AddEntry(gr1,"0#circ 25cm","pl");
     leg->AddEntry(gr2,"0#circ 100cm","pl");
     leg->SetTextSize(0.04);
     leg->Draw();
