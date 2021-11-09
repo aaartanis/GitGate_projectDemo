@@ -87,7 +87,7 @@ void d_HperD()
     //mgp->GetXaxis()->SetRangeUser(40,310);
     mgp->GetXaxis()->SetTitle("d (cm)");
     mgp->GetXaxis()->CenterTitle(true);
-    mgp->GetYaxis()->SetTitle("H/D (mSv/Gy)");
+    mgp->GetYaxis()->SetTitle("(H/D)_{d} (mSv/Gy)");
     mgp->GetYaxis()->CenterTitle(true);
     TLegend *leg;
     leg=new TLegend(0.6,0.5,0.8,0.8);
