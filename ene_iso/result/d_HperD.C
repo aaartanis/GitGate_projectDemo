@@ -97,6 +97,7 @@ void d_HperD()
     leg->AddEntry(gr4,"250 MeV/u","p");
     leg->AddEntry(gr5,"200 MeV/u","p");
     leg->AddEntry(gr6,"165 MeV/u","p");
+    leg->AddEntry(f1,"Power law fit","l");
     leg->SetTextSize(0.04);
     leg->Draw();
     gStyle->SetOptFit(0000);
