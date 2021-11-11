@@ -7,7 +7,7 @@ void plot()
     TString InputPath, infile, SaveName;
     char a[100];
     int Event_number;
-    InputPath="400-6-202110291423";
+    InputPath="165-0-202111051423";
     infile.Form("../%s/EventNum.txt",InputPath.Data());
     //get eventnum
     FILE *myfile=fopen(infile.Data(),"r");
@@ -31,15 +31,15 @@ void plot()
         dh->Fill(h->GetBinLowEdge(i+1),df);
     }
     dh->Sumw2(0);
-    TF1 *f1=new TF1("f1","[0]*TMath::Exp(-0.5*((x-[1])/[2])^2)",91,94.5);
+    TF1 *f1=new TF1("f1","[0]*TMath::Exp(-0.5*((x-[1])/[2])^2)",-118,-117);
     f1->SetParameter(0,-4e-6);
-    f1->SetParameter(1,92.1);
+    f1->SetParameter(1,-117.5);
     f1->SetParameter(2,0.5);
     dh->Fit("f1","R");
     Double_t mean=f1->GetParameter(1);
     Double_t sigma=f1->GetParameter(2);
     Int_t max_bin=h->GetMaximumBin();
-    Int_t mini_bin=h->FindBin(mean+1*sigma);
+    Int_t mini_bin=h->FindBin(mean+3*sigma);
     cout<<"bin number "<<h->GetNbinsX()<<endl;
     cout<<"maximumbin "<<max_bin<<" mm "<<max_bin*0.2<<endl;
     cout<<"minimumbin "<<mini_bin<<" mm "<<mini_bin*0.2<<endl;

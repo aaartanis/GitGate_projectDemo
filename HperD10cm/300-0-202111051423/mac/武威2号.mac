@@ -1,0 +1,283 @@
+# Line
+/gate/world/daughters/name                Line
+/gate/world/daughters/insert              box
+/gate/Line/setMaterial                    Vacuum
+/gate/Line/geometry/setXLength    20 cm
+/gate/Line/geometry/setYLength    20 cm
+/gate/Line/geometry/setZLength    10 cm
+/gate/Line/placement/setTranslation 0 0 -4.1955 m
+/gate/Line/vis/forceWireframe
+/gate/Line/vis/setVisible 1
+/gate/Line/vis/setColor   white
+
+#************************************************************************************************************************#
+
+# VacuumWindow
+/gate/world/daughters/name                VacuumWindow
+/gate/world/daughters/insert              box
+/gate/VacuumWindow/setMaterial            Vacuum
+/gate/VacuumWindow/geometry/setXLength    20 cm
+/gate/VacuumWindow/geometry/setYLength    20 cm
+/gate/VacuumWindow/geometry/setZLength    31 mm
+/gate/VacuumWindow/placement/setTranslation 0 0 -4.13 m
+/gate/VacuumWindow/vis/forceWireframe
+/gate/VacuumWindow/vis/setVisible 1
+/gate/VacuumWindow/vis/setColor   blue
+
+/gate/VacuumWindow/daughters/name         H
+/gate/VacuumWindow/daughters/insert       box
+/gate/H/setMaterial               Hostaphan
+/gate/H/geometry/setXLength       20 cm
+/gate/H/geometry/setYLength       20 cm
+/gate/H/geometry/setZLength       0.075 mm
+/gate/H/placement/setTranslation  0 0 -15 mm
+/gate/H/vis/forceWireframe
+/gate/H/vis/setVisible 1
+/gate/H/vis/setColor   yellow
+
+/gate/H/repeaters/insert          linear
+/gate/H/linear/setRepeatNumber    2
+/gate/H/linear/setRepeatVector    0 0 30 mm
+/gate/H/linear/autoCenter         false
+
+
+/gate/VacuumWindow/daughters/name         K
+/gate/VacuumWindow/daughters/insert       box
+/gate/K/setMaterial                Kevlar49
+/gate/K/geometry/setXLength        20 cm
+/gate/K/geometry/setYLength        20 cm
+/gate/K/geometry/setZLength        0.1 mm
+/gate/K/placement/setTranslation   0 0 -5 mm
+/gate/K/vis/forceWireframe
+/gate/K/vis/setVisible 1
+/gate/K/vis/setColor   yellow
+
+/gate/K/repeaters/insert          linear
+/gate/K/linear/setRepeatNumber    2
+/gate/K/linear/setRepeatVector    0 0 10 mm
+/gate/K/linear/autoCenter         false
+
+
+#***********************************************************************************************************************#
+# Main IC
+/gate/world/daughters/name                mainIC
+/gate/world/daughters/insert              box
+/gate/mainIC/setMaterial                  nitrogen
+/gate/mainIC/geometry/setXLength    20 cm
+/gate/mainIC/geometry/setYLength    20 cm
+/gate/mainIC/geometry/setZLength    20 mm
+/gate/mainIC/placement/setTranslation 0 0 -295.5 cm
+/gate/mainIC/vis/forceWireframe
+/gate/mainIC/vis/setVisible 1
+/gate/mainIC/vis/setColor   white
+
+######mainIC_window1###########################################
+
+/gate/mainIC/daughters/name               window1
+/gate/mainIC/daughters/insert             box
+/gate/window1/setMaterial               Kapton
+/gate/window1/geometry/setXLength       20 cm
+/gate/window1/geometry/setYLength       20 cm
+/gate/window1/geometry/setZLength       0.025 mm
+/gate/window1/placement/setTranslation  0 0 0 mm
+/gate/window1/vis/forceWireframe
+/gate/window1/vis/setVisible 1
+/gate/window1/vis/setColor   blue
+
+/gate/window1/daughters/name              surface1
+/gate/window1/daughters/insert            box
+/gate/surface1/setMaterial                Aluminium
+/gate/surface1/geometry/setXLength        20 cm
+/gate/surface1/geometry/setYLength        20 cm
+/gate/surface1/geometry/setZLength        0.001 mm
+/gate/surface1/placement/setTranslation   0 0 0 mm
+/gate/surface1/vis/forceWireframe
+/gate/surface1/vis/setVisible 1
+/gate/surface1/vis/setColor    yellow
+
+/gate/surface1/repeaters/insert          linear
+/gate/surface1/linear/setRepeatNumber    2
+/gate/surface1/linear/setRepeatVector    0 0 0.026 mm
+/gate/surface1/linear/autoCenter         true
+
+/gate/window1/repeaters/insert          linear
+/gate/window1/linear/setRepeatNumber    2
+/gate/window1/linear/setRepeatVector    0 0 20 mm
+/gate/window1/linear/autoCenter         true
+
+########mainIC_pole####################################
+/gate/mainIC/daughters/name            pole
+/gate/mainIC/daughters/insert          box
+/gate/pole/setMaterial             Kapton
+/gate/pole/geometry/setXLength     20 cm
+/gate/pole/geometry/setYLength     20 cm
+/gate/pole/geometry/setZLength     0.013 mm
+/gate/pole/placement/setTranslation 0 0 0 mm
+/gate/pole/vis/forceSolid 
+/gate/pole/vis/setVisible 1
+/gate/pole/vis/setColor   grey
+
+/gate/pole/daughters/name          surface2
+/gate/pole/daughters/insert        box
+/gate/surface2/setMaterial                Aluminium
+/gate/surface2/geometry/setXLength        20 cm
+/gate/surface2/geometry/setYLength        20 cm
+/gate/surface2/geometry/setZLength        0.001 mm
+/gate/surface2/placement/setTranslation   0 0 0 mm
+/gate/surface2/vis/forceWireframe
+/gate/surface2/vis/setVisible 1
+/gate/surface2/vis/setColor    yellow
+
+/gate/surface2/repeaters/insert          linear
+/gate/surface2/linear/setRepeatNumber    2
+/gate/surface2/linear/setRepeatVector    0 0 0.014 mm
+/gate/surface2/linear/autoCenter         true
+
+/gate/pole/repeaters/insert          linear
+/gate/pole/linear/setRepeatNumber    3
+/gate/pole/linear/setRepeatVector    0 0 4 mm
+/gate/pole/linear/autoCenter         true
+
+#************************************************************************************************************************#
+
+/gate/mainIC/repeaters/insert          linear
+/gate/mainIC/linear/setRepeatNumber    3
+/gate/mainIC/linear/setRepeatVector    0 0 50 mm
+/gate/mainIC/linear/autoCenter         true
+
+#*************************************************************************************************************************#
+
+# Spot position monitor
+/gate/world/daughters/name                spotIC
+/gate/world/daughters/insert              box
+/gate/spotIC/setMaterial                  nitrogen
+/gate/spotIC/geometry/setXLength    20 cm
+/gate/spotIC/geometry/setYLength    20 cm
+/gate/spotIC/geometry/setZLength    28 mm
+/gate/spotIC/placement/setTranslation 0 0 -173.1 cm
+/gate/spotIC/vis/forceWireframe
+/gate/spotIC/vis/setVisible 1
+/gate/spotIC/vis/setColor   white
+
+#########spotIC_window2########################################
+/gate/spotIC/daughters/name               window2
+/gate/spotIC/daughters/insert             box
+/gate/window2/setMaterial               Kapton
+/gate/window2/geometry/setXLength       20 cm
+/gate/window2/geometry/setYLength       20 cm
+/gate/window2/geometry/setZLength       0.025 mm
+/gate/window2/placement/setTranslation  0 0 0 mm
+/gate/window2/vis/forceWireframe
+/gate/window2/vis/setVisible 1
+/gate/window2/vis/setColor   blue
+
+/gate/window2/daughters/name              surface3
+/gate/window2/daughters/insert            box
+/gate/surface3/setMaterial                Aluminium
+/gate/surface3/geometry/setXLength        20 cm
+/gate/surface3/geometry/setYLength        20 cm
+/gate/surface3/geometry/setZLength        0.001 mm
+/gate/surface3/placement/setTranslation   0 0 0 mm
+/gate/surface3/vis/forceWireframe
+/gate/surface3/vis/setVisible 1
+/gate/surface3/vis/setColor    yellow
+
+/gate/surface3/repeaters/insert          linear
+/gate/surface3/linear/setRepeatNumber    2
+/gate/surface3/linear/setRepeatVector    0 0 0.026 mm
+/gate/surface3/linear/autoCenter         true
+
+/gate/window2/repeaters/insert          linear
+/gate/window2/linear/setRepeatNumber    2
+/gate/window2/linear/setRepeatVector    0 0 28 mm
+/gate/window2/linear/autoCenter         true
+
+###########spotIC_HV###################################
+
+/gate/spotIC/daughters/name            HV
+/gate/spotIC/daughters/insert          box
+/gate/HV/setMaterial             Kapton
+/gate/HV/geometry/setXLength     20 cm
+/gate/HV/geometry/setYLength     20 cm
+/gate/HV/geometry/setZLength     0.013 mm
+/gate/HV/placement/setTranslation 0 0 0 mm
+/gate/HV/vis/forceSolid 
+/gate/HV/vis/setVisible 1
+/gate/HV/vis/setColor   grey
+
+/gate/HV/daughters/name          surface4
+/gate/HV/daughters/insert        box
+/gate/surface4/setMaterial                Aluminium
+/gate/surface4/geometry/setXLength        20 cm
+/gate/surface4/geometry/setYLength        20 cm
+/gate/surface4/geometry/setZLength        0.001 mm
+/gate/surface4/placement/setTranslation   0 0 0 mm
+/gate/surface4/vis/forceWireframe
+/gate/surface4/vis/setVisible 1
+/gate/surface4/vis/setColor    yellow
+
+/gate/surface4/repeaters/insert          linear
+/gate/surface4/linear/setRepeatNumber    2
+/gate/surface4/linear/setRepeatVector    0 0 0.014 mm
+/gate/surface4/linear/autoCenter         true
+
+/gate/HV/repeaters/insert          linear
+/gate/HV/linear/setRepeatNumber    3
+/gate/HV/linear/setRepeatVector    0 0 8 mm
+/gate/HV/linear/autoCenter         true
+
+############spotIC_signal#################################
+
+/gate/spotIC/daughters/name                 signal
+/gate/spotIC/daughters/insert               box
+/gate/signal/setMaterial              PCB
+/gate/signal/geometry/setXLength      20 cm
+/gate/signal/geometry/setYLength      20 cm
+/gate/signal/geometry/setZLength      0.2 mm
+/gate/signal/placement/setTranslation 0 0 0 mm
+/gate/signal/vis/forceSolid
+/gate/signal/vis/setVisible   1
+/gate/signal/vis/setColor    grey
+
+/gate/signal/daughters/name              surface5
+/gate/signal/daughters/insert            box
+/gate/surface5/setMaterial                Aluminium
+/gate/surface5/geometry/setXLength        20 cm
+/gate/surface5/geometry/setYLength        20 cm
+/gate/surface5/geometry/setZLength        0.05 mm
+/gate/surface5/placement/setTranslation   0 0 0 mm
+/gate/surface5/vis/forceWireframe
+/gate/surface5/vis/setVisible 1
+/gate/surface5/vis/setColor    yellow
+
+/gate/surface5/repeaters/insert          linear
+/gate/surface5/linear/setRepeatNumber    2
+/gate/surface5/linear/setRepeatVector    0 0 0.25 mm
+/gate/surface5/linear/autoCenter         true
+
+/gate/signal/repeaters/insert          linear
+/gate/signal/linear/setRepeatNumber    2
+/gate/signal/linear/setRepeatVector    0 0 8 mm
+/gate/signal/linear/autoCenter         true
+
+#************************************************************************************************************************#
+
+/gate/spotIC/repeaters/insert          linear
+/gate/spotIC/linear/setRepeatNumber    2
+/gate/spotIC/linear/setRepeatVector    0 0 16.1 cm
+/gate/spotIC/linear/autoCenter         false
+
+#*************************************************************************************************************************#
+#MLC film
+/gate/world/daughters/name                   MLC
+/gate/world/daughters/insert                 box
+/gate/MLC/setMaterial                     PMMA
+/gate/MLC/geometry/setXLength             20.0 cm
+/gate/MLC/geometry/setYLength             20.0 cm
+/gate/MLC/geometry/setZLength             4.0 mm
+/gate/MLC/placement/setTranslation        0 0 -70 cm
+/gate/MLC/vis/forceSolid
+/gate/MLC/vis/setVisible 1
+/gate/MLC/vis/setColor                    red
+# Range filter
+#/control/execute mac/RF8mm.mac

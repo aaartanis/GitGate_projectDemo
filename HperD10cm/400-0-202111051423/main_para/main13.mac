@@ -1,0 +1,147 @@
+/gate/verbose Physic 0
+/gate/verbose Cuts 0
+/gate/verbose SD 0
+/gate/verbose Actions 0
+/gate/verbose Actor 0
+/gate/verbose Step 0
+/gate/verbose Error 0
+/gate/verbose Warning 0
+/gate/verbose Output 0
+/gate/verbose Beam 0
+/gate/verbose Volume 0
+/gate/verbose Image 0
+/gate/verbose Geometry 0
+/gate/verbose Core 2
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+
+/gate/geometry/setMaterialDatabase data/AF_GateMaterials.db
+/gate/world/setMaterial Air
+/gate/world/geometry/setXLength 5.0 m
+/gate/world/geometry/setYLength 5.0 m
+/gate/world/geometry/setZLength 10.0 m
+/gate/world/daughters/name killer
+/gate/world/daughters/insert box
+/gate/killer/geometry/setXLength 5 m
+/gate/killer/geometry/setYLength 5 m
+/gate/killer/geometry/setZLength 2 cm
+/gate/killer/placement/setTranslation 0 0 2.2 m
+/gate/killer/setMaterial Air
+/gate/killer/vis/forceSolid
+/gate/actor/addActor KillActor kill_actor
+/gate/actor/kill_actor/save output/mykiller13.txt
+/gate/actor/kill_actor/attachTo killer
+/gate/world/daughters/name pre_collimator
+/gate/world/daughters/insert box
+/gate/pre_collimator/geometry/setXLength 200 mm
+/gate/pre_collimator/geometry/setYLength 200 mm
+/gate/pre_collimator/geometry/setZLength 46 mm
+/gate/pre_collimator/placement/setTranslation 0 0 -3575 mm
+/gate/pre_collimator/setMaterial Copper
+/gate/pre_collimator/vis/forceWireframe
+/gate/pre_collimator/daughters/name pre_hole
+/gate/pre_collimator/daughters/insert box
+/gate/pre_hole/geometry/setXLength 150 mm
+/gate/pre_hole/geometry/setYLength 150 mm
+/gate/pre_hole/geometry/setZLength 46 mm
+/gate/pre_hole/placement/setTranslation 0 0 0 mm
+/gate/pre_hole/setMaterial Air
+/gate/pre_hole/vis/forceSolid
+/gate/world/daughters/name mul_collimator
+/gate/world/daughters/insert box
+/gate/mul_collimator/geometry/setXLength 200 mm
+/gate/mul_collimator/geometry/setYLength 200 mm
+/gate/mul_collimator/geometry/setZLength 64.8 mm
+/gate/mul_collimator/placement/setTranslation 0 0 -720 mm
+/gate/mul_collimator/setMaterial MLC
+/gate/mul_collimator/vis/forceWireframe
+/gate/mul_collimator/daughters/name openhole
+/gate/mul_collimator/daughters/insert box
+/gate/openhole/geometry/setXLength 100 mm
+/gate/openhole/geometry/setYLength 100 mm
+/gate/openhole/geometry/setZLength 64.8 mm
+/gate/openhole/placement/setTranslation 0 0 0 mm
+/gate/openhole/setMaterial Air
+/gate/openhole/vis/forceSolid
+
+/gate/world/daughters/name watertank
+/gate/world/daughters/insert box
+/gate/watertank/setMaterial Water
+/gate/watertank/geometry/setXLength 20.0 cm
+/gate/watertank/geometry/setYLength 20.0 cm
+/gate/watertank/geometry/setZLength 35.0 cm
+/gate/watertank/placement/setTranslation 0 0 0 cm
+/gate/watertank/vis/forceWireframe
+/gate/watertank/vis/setColor blue
+
+/gate/physics/addPhysicsList QGSP_BERT_HP_EMY
+/gate/geometry/setIonisationPotential Water 75 eV
+/gate/physics/displayCuts
+/gate/physics/print output/physics.txt
+/gate/physics/Gamma/SetCutInRegion world 10 m
+/gate/physics/Electron/SetCutInRegion world 10 m
+/gate/physics/Positron/SetCutInRegion world 10 m
+/gate/physics/Gamma/SetCutInRegion pre_collimator 1 mm
+/gate/physics/Electron/SetCutInRegion pre_collimator 1 mm
+/gate/physics/Positron/SetCutInRegion pre_collimator 1 mm
+/gate/physics/Gamma/SetCutInRegion pre_hole 10 m
+/gate/physics/Electron/SetCutInRegion pre_hole 10 m
+/gate/physics/Positron/SetCutInRegion pre_hole 10 m
+/gate/physics/Gamma/SetCutInRegion mul_collimator 1 mm
+/gate/physics/Electron/SetCutInRegion mul_collimator 1 mm
+/gate/physics/Positron/SetCutInRegion mul_collimator 1 mm
+/gate/physics/Gamma/SetCutInRegion watertank 1 mm
+/gate/physics/Electron/SetCutInRegion watertank 1 mm
+/gate/physics/Positron/SetCutInRegion watertank 1 mm
+/gate/physics/SetMaxStepSizeInRegion world 1 cm
+/gate/physics/SetMaxStepSizeInRegion pre_collimator 1 mm
+/gate/physics/SetMaxStepSizeInRegion mul_collimator 1 mm
+/gate/physics/SetMaxStepSizeInRegion watertank 1mm
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter deuteron
+/gate/physics/ActivateStepLimiter triton
+/gate/physics/ActivateStepLimiter alpha
+/gate/physics/ActivateStepLimiter GenericIon
+/gate/physics/ActivateStepLimiter proton
+/gate/physics/ActivateStepLimiter e-
+/gate/physics/displayCuts
+/gate/actor/addActor DoseActor doseDistribution
+/gate/actor/doseDistribution/save output/braggpeak_water13.root
+/gate/actor/doseDistribution/attachTo watertank
+/gate/actor/doseDistribution/stepHitType random
+/gate/actor/doseDistribution/setPosition 0 0 0 mm
+/gate/actor/doseDistribution/setVoxelSize 150 150 0.2 mm
+/gate/actor/doseDistribution/enableEdep false
+/gate/actor/doseDistribution/enableUncertaintyEdep false
+/gate/actor/doseDistribution/enableDose true
+/gate/actor/doseDistribution/enableSquaredDose false
+/gate/actor/doseDistribution/enableUncertaintyDose false
+/gate/actor/doseDistribution/enableNumberOfHits false
+/gate/actor/doseDistribution/saveEveryNSeconds 20
+
+/gate/run/initialize
+/gate/source/addSource C12 gps
+/gate/source/C12/gps/particle ion
+/gate/source/C12/gps/ion 6 12
+/gate/source/C12/gps/ene/type Gauss
+/gate/source/C12/gps/energy 4800 MeV
+/gate/source/C12/gps/ene/sigma 0.0 MeV
+/gate/source/C12/gps/pos/type Plane
+/gate/source/C12/gps/pos/shape Square
+/gate/source/C12/gps/pos/halfx 7.5 cm
+/gate/source/C12/gps/pos/halfy 7.5 cm
+/gate/source/C12/gps/ang/minphi 0 deg
+/gate/source/C12/gps/ang/maxphi 360 deg
+/gate/source/C12/gps/ang/mintheta 0 deg
+/gate/source/C12/gps/ang/maxtheta 0 deg
+/gate/source/C12/gps/pos/centre 0. 0. -450 cm
+/gate/source/C12/gps/direction 0 0 1
+/gate/random/setEngineName MersenneTwister
+
+/gate/application/setTotalNumberOfPrimaries 209000
+/gate/random/setEngineSeed 3309558656491799140
+/gate/application/setTimeStart 0. s
+/gate/application/addSlice     1. s
+/gate/application/startDAQCluster 0.25 0.270833 0 s
+

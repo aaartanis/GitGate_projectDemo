@@ -1,0 +1,14 @@
+# WATERBOX
+/gate/world/daughters/name                   watertank
+/gate/world/daughters/insert                 box
+/gate/watertank/setMaterial                     Water
+/gate/watertank/geometry/setXLength             20.0 cm
+/gate/watertank/geometry/setYLength             20.0 cm
+/gate/watertank/geometry/setZLength             35.0 cm
+/gate/watertank/placement/setTranslation        0 0 0 cm
+/gate/watertank/vis/forceWireframe
+/gate/watertank/vis/setColor                    blue
+
+
+
+
