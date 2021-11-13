@@ -1,0 +1,66 @@
+void plot2()
+{
+    TFile *ipf=new TFile("mergefile.root");
+    TTree *ipt=(TTree*)ipf->Get("t");
+    TCanvas *c0=new TCanvas("c0","c0");
+    c0->cd();
+    
+    ipt->Draw("HD_pre/HD_mc:distance","energy==165   && location <=10 && size <=120","goff");
+    TGraph *gr1=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
+    gr1->SetMarkerStyle(34);
+    gr1->SetMarkerColor(7);
+    gr1->SetMarkerSize(1.5);
+    ipt->Draw("HD_pre/HD_mc:distance","energy==200  && location <=10 && size <=120 ","goff");
+    TGraph *gr2=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
+    gr2->SetMarkerStyle(21);
+    gr2->SetMarkerColor(6);
+    gr2->SetMarkerSize(1.5);
+    ipt->Draw("HD_pre/HD_mc:distance","energy==250   && location <=10 && size <=120 ","goff");
+    TGraph *gr3=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
+    gr3->SetMarkerStyle(20);
+    gr3->SetMarkerColor(4);
+    gr3->SetMarkerSize(1.5);
+    ipt->Draw("HD_pre/HD_mc:distance","energy==300   && location <=10 && size <=120 ","goff");
+    TGraph *gr4=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
+    gr4->SetMarkerStyle(23);
+    gr4->SetMarkerColor(3);
+    gr4->SetMarkerSize(1.5);
+    ipt->Draw("HD_pre/HD_mc:distance","energy==350   && location <=10 && size <=120 ","goff");
+    TGraph *gr5=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
+    gr5->SetMarkerStyle(22);
+    gr5->SetMarkerColor(2);
+    gr5->SetMarkerSize(1.5);
+    ipt->Draw("HD_pre/HD_mc:distance","energy==400   && location <=10 && size <=120 ","goff");
+    TGraph *gr6=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
+    gr6->SetMarkerStyle(43);
+    gr6->SetMarkerColor(9);
+    gr6->SetMarkerSize(1.5);
+
+    TMultiGraph *mgp=new TMultiGraph();
+    mgp->Add(gr1,"p");
+    mgp->Add(gr2,"p");
+    mgp->Add(gr3,"p");
+    mgp->Add(gr4,"p");
+    mgp->Add(gr5,"p");
+    mgp->Add(gr6,"p");
+    mgp->Draw("a");
+    mgp->GetYaxis()->SetLimits(0,3);
+    //mgp->GetXaxis()->SetLimits(40,310);
+    mgp->GetYaxis()->SetRangeUser(0,3);
+    //mgp->GetXaxis()->SetRangeUser(40,310);
+    mgp->GetXaxis()->SetTitle("d (cm)");
+    mgp->GetXaxis()->CenterTitle(true);
+    mgp->GetYaxis()->SetTitle("(H/D)_{pred} / (H/D)_{mc}");
+    mgp->GetYaxis()->CenterTitle(true);
+    TLegend *leg;
+    leg=new TLegend(0.6,0.5,0.8,0.8);
+    leg->AddEntry(gr1,"165 MeV/u","p");
+    leg->AddEntry(gr2,"200 MeV/u","p");
+    leg->AddEntry(gr3,"250 MeV/u","p");
+    leg->AddEntry(gr4,"300 MeV/u","p");
+    leg->AddEntry(gr5,"350 MeV/u","p");
+    leg->AddEntry(gr6,"400 MeV/u","p");
+    //leg->AddEntry(f1,"Power law fit","l");
+    leg->SetTextSize(0.04);
+    leg->Draw();
+}
