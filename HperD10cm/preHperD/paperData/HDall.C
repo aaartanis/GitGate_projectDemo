@@ -18,7 +18,7 @@ void HDall()
     t1->Draw("y_coordinate:x","","goff");
     TGraph *g1=new TGraph(t1->GetSelectedRows(),t1->GetV2(),t1->GetV1());
     g1->SetLineWidth(3);
-    g1->SetLineColor(3);
+    g1->SetLineColor(kGreen+1);
     g1->SetLineStyle(9);
 
     TTree *t2=new TTree("t2","tree form Wroe.CSV");
@@ -46,7 +46,7 @@ void HDall()
     t4->Draw("y_coordinate:x","","goff");
     TGraph *g4=new TGraph(t4->GetSelectedRows(),t4->GetV2(),t4->GetV1());
     g4->SetLineWidth(3);
-    g4->SetLineColor(6);
+    g4->SetLineColor(kRed+1);
     g4->SetLineStyle(2);
 
     TTree *t5=new TTree("t5","tree form Polf.CSV");
@@ -84,14 +84,14 @@ void HDall()
     t8->Draw("y_coordinate:x","","goff");
     TGraph *g8=new TGraph(t8->GetSelectedRows(),t8->GetV2(),t8->GetV1());
     g8->SetLineWidth(5);
-    g8->SetLineColor(2);
+    g8->SetLineColor(kRed);
 
     TTree *t9=new TTree("t","tree form lowerBounds.CSV");
     t9->ReadFile("lowerBounds.CSV","x/D:y/D:y_coordinate/D");
     t9->Draw("y_coordinate:x","","goff");
     TGraph *g9=new TGraph(t9->GetSelectedRows(),t9->GetV2(),t9->GetV1());
     g9->SetLineWidth(5);
-    g9->SetLineColor(2);
+    g9->SetLineColor(kRed);
 
     gPad->SetLogy();
     TMultiGraph *mgp=new TMultiGraph();
