@@ -84,14 +84,24 @@ void HDall()
     t8->Draw("y_coordinate:x","","goff");
     TGraph *g8=new TGraph(t8->GetSelectedRows(),t8->GetV2(),t8->GetV1());
     g8->SetLineWidth(5);
-    g8->SetLineColor(kRed);
+    g8->SetLineColorAlpha(kRed,0.35);
 
     TTree *t9=new TTree("t","tree form lowerBounds.CSV");
     t9->ReadFile("lowerBounds.CSV","x/D:y/D:y_coordinate/D");
     t9->Draw("y_coordinate:x","","goff");
     TGraph *g9=new TGraph(t9->GetSelectedRows(),t9->GetV2(),t9->GetV1());
     g9->SetLineWidth(5);
-    g9->SetLineColor(kRed);
+    g9->SetLineColorAlpha(kRed,0.35);
+
+    TTree *t10=new TTree("t10","tree form Zheng.CSV");
+    t10->ReadFile("Zheng.CSV","x/D:y/D:y_coordinate/D");
+    t10->Draw("y_coordinate:x","","goff");
+    TGraph *g10=new TGraph(t10->GetSelectedRows(),t10->GetV2(),t10->GetV1());
+    g10->SetLineWidth(3);
+    g10->SetLineColor(kYellow+1);
+    g10->SetMarkerStyle(49);
+    g10->SetMarkerSize(1.5);
+    g10->SetMarkerColor(kYellow+1);
 
     gPad->SetLogy();
     TMultiGraph *mgp=new TMultiGraph();
@@ -99,6 +109,7 @@ void HDall()
     mgp->Add(g9,"c");    
     mgp->Add(g1,"c");
     mgp->Add(g4,"c");
+    mgp->Add(g10,"pl");
     mgp->Add(g2,"pl");    
     mgp->Add(g3,"pl");
     mgp->Add(g5,"pl");
@@ -120,6 +131,7 @@ void HDall()
     leg->AddEntry(g2,"Wroe et al","pl");
     leg->AddEntry(g3,"Mesoloras et al","pl");
     leg->AddEntry(g4,"Zacharatou Jarlskog et al","l");
+    leg->AddEntry(g10,"Zheng et al","pl");
     leg->AddEntry(g5,"Polf et al","pl");
     leg->AddEntry(g6,"Schneider et al - spot scanning","pl");
     leg->AddEntry(g7,"Yonai et al","pl");
