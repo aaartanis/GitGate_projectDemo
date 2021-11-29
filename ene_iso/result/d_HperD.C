@@ -24,7 +24,7 @@ void d_HperD()
     f1->SetParameters(1,-2);
     //Draw with option goff and generate variables
     Double_t x[] = {72,97,122,172,222,272,91.403,113.027,159.268,207.262,256.025,76.217,87.658,123.223,166.385,212.565};
-    ipt->Draw("((EQ1+EQ2)*1e-9/D_p):location","energy==400","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/D_p)/rbe:location","energy==400","goff");
     TGraph *gr1=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr1->SetTitle("400 MeV/u");
     gr1->SetMarkerStyle(21);
@@ -33,7 +33,7 @@ void d_HperD()
     gr1->Fit("myfit","","",69,275);
 
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/D_p):location","energy==350","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/D_p)/rbe:location","energy==350","goff");
     TGraph *gr2=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr2->SetTitle("350 MeV/u");
     gr2->SetMarkerStyle(22);
@@ -41,7 +41,7 @@ void d_HperD()
     gr2->SetMarkerSize(1.5);
     gr2->Fit("myfit","","",70,275);
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/D_p):location","energy==300","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/D_p)/rbe:location","energy==300","goff");
     TGraph *gr3=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr3->SetTitle("300 MeV/u");
     gr3->SetMarkerStyle(23);
@@ -49,7 +49,7 @@ void d_HperD()
     gr3->SetMarkerSize(1.5);
     gr3->Fit("myfit","","",70,275);
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/D_p):location","energy==250","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/D_p)/rbe:location","energy==250","goff");
     TGraph *gr4=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr4->SetTitle("250 MeV/u");
     gr4->SetMarkerStyle(20);
@@ -57,7 +57,7 @@ void d_HperD()
     gr4->SetMarkerSize(1.5);
     gr4->Fit("myfit","","",70,275);
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/D_p):location","energy==200","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/D_p)/rbe:location","energy==200","goff");
     TGraph *gr5=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr5->SetTitle("200 MeV/u");
     gr5->SetMarkerStyle(43);
@@ -65,7 +65,7 @@ void d_HperD()
     gr5->SetMarkerSize(1.5);
     gr5->Fit("myfit","","",70,275);
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/D_p):location","energy==165","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/D_p)/rbe:location","energy==165","goff");
     TGraph *gr6=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr6->SetTitle("165 MeV/u");
     gr6->SetMarkerStyle(34);

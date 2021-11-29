@@ -6,7 +6,7 @@ void HDall()
     TFile *ipf=new TFile("../mergefile.root");
     TTree *ipt=(TTree*)ipf->Get("t");
     Double_t DFE[3]={15,40,90};
-    ipt->Draw("HD_mc:location","energy==300 && width==6 && size ==0 && location>=11 && location<=13","goff");
+    ipt->Draw("HD_mc/rbe:location","energy==300 && width==6 && size ==0 && location>=11 && location<=13","goff");
     TGraph *gr1=new TGraph(ipt->GetSelectedRows(),DFE,ipt->GetV1());
     gr1->SetMarkerStyle(43);
     gr1->SetMarkerColor(1);
@@ -21,6 +21,7 @@ void HDall()
     g1->SetLineColor(kGreen+1);
     g1->SetLineStyle(9);
 
+    /*
     TTree *t2=new TTree("t2","tree form Wroe.CSV");
     t2->ReadFile("Wroe.CSV","x/D:y/D:y_coordinate/D");
     t2->Draw("y_coordinate:x","","goff");
@@ -30,7 +31,7 @@ void HDall()
     g2->SetMarkerStyle(20);
     g2->SetMarkerSize(1.5);
     g2->SetMarkerColor(4);
-
+  
     TTree *t3=new TTree("t3","tree form Mesoloras.CSV");
     t3->ReadFile("Mesoloras.CSV","x/D:y/D:y_coordinate/D");
     t3->Draw("y_coordinate:x","","goff");
@@ -48,7 +49,7 @@ void HDall()
     g4->SetLineWidth(3);
     g4->SetLineColor(kRed+1);
     g4->SetLineStyle(2);
-
+*/
     TTree *t5=new TTree("t5","tree form Polf.CSV");
     t5->ReadFile("Polf.CSV","x/D:y/D:y_coordinate/D");
     t5->Draw("y_coordinate:x","","goff");
@@ -108,10 +109,10 @@ void HDall()
     mgp->Add(g8,"c");
     mgp->Add(g9,"c");    
     mgp->Add(g1,"c");
-    mgp->Add(g4,"c");
+   // mgp->Add(g4,"c");
     mgp->Add(g10,"pl");
-    mgp->Add(g2,"pl");    
-    mgp->Add(g3,"pl");
+   // mgp->Add(g2,"pl");    
+  // mgp->Add(g3,"pl");
     mgp->Add(g5,"pl");
     mgp->Add(g6,"pl");    
     mgp->Add(g7,"pl");
@@ -119,7 +120,9 @@ void HDall()
     mgp->GetXaxis()->SetRangeUser(0,80);
     mgp->GetYaxis()->SetRangeUser(1e-2,1000);
     mgp->Draw("a");
-    mgp->GetXaxis()->SetTitle("Distance From Field Edge (cm)");
+   // mgp->GetXaxis()->SetTitle("Distance From Field Edge (cm)");
+    mgp->GetXaxis()->SetTitle("\\hbox{与射野边缘的距离} (cm)");
+
     mgp->GetXaxis()->CenterTitle(true);
     mgp->GetYaxis()->SetTitle("H/D (mSv/Gy)");
     mgp->GetYaxis()->CenterTitle(true);
@@ -128,12 +131,12 @@ void HDall()
     leg->AddEntry(g8,"Upper Bounds","l");
     leg->AddEntry(g9,"Lower Bounds","l");
     leg->AddEntry(g1,"Yan et al","l");
-    leg->AddEntry(g2,"Wroe et al","pl");
-    leg->AddEntry(g3,"Mesoloras et al","pl");
-    leg->AddEntry(g4,"Zacharatou Jarlskog et al","l");
+   // leg->AddEntry(g2,"Wroe et al","pl");
+   // leg->AddEntry(g3,"Mesoloras et al","pl");
+   // leg->AddEntry(g4,"Zacharatou Jarlskog et al","l");
     leg->AddEntry(g10,"Zheng et al","pl");
     leg->AddEntry(g5,"Polf et al","pl");
-    leg->AddEntry(g6,"Schneider et al - spot scanning","pl");
+    leg->AddEntry(g6,"Schneider et al","pl");
     leg->AddEntry(g7,"Yonai et al","pl");
     leg->AddEntry(gr1,"This Work","pl");
     //leg->AddEntry(f1,"Power law fit","l");

@@ -4,7 +4,7 @@ void R_HperD()
     TTree *ipt=(TTree*)ipf->Get("t");
     TCanvas *c0=new TCanvas("c0","c0");
     c0->cd();
-    ipt->Draw("((EQ1+EQ2)*1e-9/D_p):range*1e-1","location==0","goff");//pSv->mSv
+    ipt->Draw("((EQ1+EQ2)*1e-9/D_p)/rbe:range*1e-1","location==0","goff");//pSv->mSv
     TGraph *gr0=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
     gr0->SetMarkerStyle(21);
     gr0->SetMarkerColor(1);
@@ -14,7 +14,7 @@ void R_HperD()
     gr0->SetTitle("Isocenter");
     //gr0->Draw("ap");
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/D_p):range*1e-1","location==1","goff");//pSv->mSv
+    ipt->Draw("((EQ1+EQ2)*1e-9/D_p)/rbe:range*1e-1","location==1","goff");//pSv->mSv
     TGraph *gr1=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
     gr1->SetMarkerStyle(22);
     gr1->SetMarkerColor(2);
@@ -24,7 +24,7 @@ void R_HperD()
     gr1->SetTitle("0#circ 25cm");
 
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/D_p):range*1e-1","location==3","goff");//pSv->mSv
+    ipt->Draw("((EQ1+EQ2)*1e-9/D_p)/rbe:range*1e-1","location==3","goff");//pSv->mSv
     TGraph *gr2=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
     gr2->SetMarkerStyle(23);
     gr2->SetMarkerColor(kBlue);
@@ -38,9 +38,9 @@ void R_HperD()
     mgp->Add(gr1,"pc");
     mgp->Add(gr2,"pc");
     mgp->Draw("a");
-    mgp->GetYaxis()->SetLimits(0,17);
+    mgp->GetYaxis()->SetLimits(0,11);
     mgp->GetXaxis()->SetLimits(0,30);
-    mgp->GetYaxis()->SetRangeUser(0,17);
+    mgp->GetYaxis()->SetRangeUser(0,11);
     mgp->GetXaxis()->SetRangeUser(0,30);
     mgp->GetXaxis()->SetTitle("Range (cm)");
     mgp->GetXaxis()->CenterTitle(true);
@@ -49,8 +49,8 @@ void R_HperD()
     TLegend *leg;
     leg=new TLegend(0.2,0.6,0.4,0.8);
     leg->AddEntry(gr0,"Isocenter","pl");
-    leg->AddEntry(gr1,"0#circ 25cm","pl");
-    leg->AddEntry(gr2,"0#circ 100cm","pl");
+    leg->AddEntry(gr1,"0^{#circ} 25cm","pl");
+    leg->AddEntry(gr2,"0^{#circ} 100cm","pl");
     leg->SetTextSize(0.04);
     leg->Draw();
 }

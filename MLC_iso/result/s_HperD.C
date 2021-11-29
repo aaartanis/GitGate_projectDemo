@@ -38,12 +38,12 @@ void s_HperD()
     TLegend *leg;
     leg=new TLegend(0.6,0.6,0.95,0.95);
     leg->AddEntry(gr[0],"Isocenter","pl");
-    leg->AddEntry(gr[1]," 0#circ 100cm","pl");
-    leg->AddEntry(gr[4],"45#circ 200cm","pl");
-    leg->AddEntry(gr[2]," 0#circ 200cm","pl");
-    leg->AddEntry(gr[5],"90#circ 100cm","pl");
-    leg->AddEntry(gr[3],"45#circ 100cm","pl");
-    leg->AddEntry(gr[6],"90#circ 200cm","pl");
+    leg->AddEntry(gr[1]," 0^{#circ} 100cm","pl");
+    leg->AddEntry(gr[4],"45^{#circ} 200cm","pl");
+    leg->AddEntry(gr[2]," 0^{#circ} 200cm","pl");
+    leg->AddEntry(gr[5],"90^{#circ} 100cm","pl");
+    leg->AddEntry(gr[3],"45^{#circ} 100cm","pl");
+    leg->AddEntry(gr[6],"90^{#circ} 200cm","pl");
     leg->SetTextSize(0.04);
     leg->Draw();
 
