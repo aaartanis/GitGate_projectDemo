@@ -7,7 +7,7 @@ void plot()
     TString InputPath, infile, SaveName;
     char a[100];
     int Event_number;
-    InputPath="165-0-202111051423";
+    InputPath="300-6-202110291423";
     infile.Form("../%s/EventNum.txt",InputPath.Data());
     //get eventnum
     FILE *myfile=fopen(infile.Data(),"r");
@@ -31,9 +31,9 @@ void plot()
         dh->Fill(h->GetBinLowEdge(i+1),df);
     }
     dh->Sumw2(0);
-    TF1 *f1=new TF1("f1","[0]*TMath::Exp(-0.5*((x-[1])/[2])^2)",-118,-117);
+    TF1 *f1=new TF1("f1","[0]*TMath::Exp(-0.5*((x-[1])/[2])^2)",-12,-9);
     f1->SetParameter(0,-4e-6);
-    f1->SetParameter(1,-117.5);
+    f1->SetParameter(1,-11);
     f1->SetParameter(2,0.5);
     dh->Fit("f1","R");
     Double_t mean=f1->GetParameter(1);
@@ -49,8 +49,28 @@ void plot()
     cout<<InputPath.Data()<<endl;
     cout<<"D/p = "<<(h->GetBinContent((max_bin+mini_bin)/2))/Event_number<<" Grey"<<endl;
     dh->Draw();
-    SaveName.Form("./figure/%s.png",InputPath.Data());
-    c0->SaveAs(SaveName.Data());
+    //SaveName.Form("./figure/%s.png",InputPath.Data());
+    //c0->SaveAs(SaveName.Data());
+
+    cout<<endl;
+    TCanvas *c1=new TCanvas("c1","c1");
+    h->Draw("hist");
+    Double_t max_dose=h->GetBinContent(max_bin);
+    Double_t distal_dose=0.2*max_dose;
+    cout<<distal_dose<<endl;
+
+    Int_t bin_num;
+    for(int i=1;i<=h->GetNbinsX();i++)
+    {
+        if((-50<0.2*i-175) && (0.2*i-175<0) && (TMath::Abs(h->GetBinContent(i)-distal_dose)<=0.000001))
+        {
+            bin_num=i;
+            cout<<"this_dose "<<h->GetBinContent(i)<<endl;
+            cout<<"Range "<<i*0.2<<"mm"<<endl;
+        }
+    }
+
+
 
 
     //h->Draw("hist");
