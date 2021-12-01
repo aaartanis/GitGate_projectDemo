@@ -10,7 +10,8 @@ void s_HperD1()
     Color_t col[10]={1,2,3,4,41,40,6,9,46,49}; 
     Int_t mar[10]={20,33,22,23,29,21,34,39,43,47};
     Int_t local[10]={0,3,5,8,10,13,15};
-    Double_t H0[10]={13.423419,2.3918080,0.9520865,2.2561327,0.7924870,2.2974350,0.5254408};
+    Double_t H0[10]={79.965760,14.229541,5.6708961,13.442573,4.7220880,13.677506,3.1296592};
+
     TString loc,target;
     TF1 *f1=new TF1("myfit",fitFunc,0,230,2);
     f1->SetLineColor(1);
@@ -20,7 +21,7 @@ void s_HperD1()
 
     for(int i=0;i<7;i++)
     {
-        target.Form("((EQ1+EQ2)*1e-9/D_p)/%f:size*size/100",H0[i]);
+        target.Form("((EQ1+EQ2)*1e-9/(D_p*rbe))/%f:size*size/100",H0[i]);
         loc.Form("location==%d",local[i]);
         ipt->Draw(target.Data(),loc.Data(),"goff");
         gr[i]=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());

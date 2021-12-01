@@ -38,9 +38,9 @@ void R_HperD()
     mgp->Add(gr1,"pc");
     mgp->Add(gr2,"pc");
     mgp->Draw("a");
-    mgp->GetYaxis()->SetLimits(0,11);
+    mgp->GetYaxis()->SetLimits(0,110);
     mgp->GetXaxis()->SetLimits(0,30);
-    mgp->GetYaxis()->SetRangeUser(0,11);
+    mgp->GetYaxis()->SetRangeUser(0,110);
     mgp->GetXaxis()->SetRangeUser(0,30);
     mgp->GetXaxis()->SetTitle("Range (cm)");
     mgp->GetXaxis()->CenterTitle(true);

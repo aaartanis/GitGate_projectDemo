@@ -120,8 +120,8 @@ void HDall()
     mgp->GetXaxis()->SetRangeUser(0,80);
     mgp->GetYaxis()->SetRangeUser(1e-2,1000);
     mgp->Draw("a");
-   // mgp->GetXaxis()->SetTitle("Distance From Field Edge (cm)");
-    mgp->GetXaxis()->SetTitle("\\hbox{与射野边缘的距离} (cm)");
+    mgp->GetXaxis()->SetTitle("Distance From Field Edge (cm)");
+    //mgp->GetXaxis()->SetTitle("\\hbox{与射野边缘的距离} (cm)");
 
     mgp->GetXaxis()->CenterTitle(true);
     mgp->GetYaxis()->SetTitle("H/D (mSv/Gy)");

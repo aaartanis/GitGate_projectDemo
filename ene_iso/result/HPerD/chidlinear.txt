@@ -1,60 +1,57 @@
-root [0] 
-Processing d_HperD.C...
+root [1] .x d_HperD.C
 
 ****************************************
 Minimizer is Minuit / Migrad
-Chi2                      =      3.30536
+Chi2                      =      334.519
 NDf                       =           14
-Edm                       =  2.40785e-09
-NCalls                    =          586
-k1                        =       134746   +/-   115438      
-a1                        =     -2.28724   +/-   0.19277     
+Edm                       =  1.45733e-09
+NCalls                    =          573
+k1                        =   1.4197e+06   +/-   1.21892e+06 
+a1                        =     -2.29687   +/-   0.193027    
 
 ****************************************
 Minimizer is Minuit / Migrad
-Chi2                      =      1.11871
+Chi2                      =      113.546
 NDf                       =           14
-Edm                       =  3.21541e-07
-NCalls                    =           85
-k1                        =      76311.1   +/-   64292.2     
-a1                        =     -2.27751   +/-   0.189542    
+Edm                       =  1.17888e-07
+NCalls                    =           94
+k1                        =       801628   +/-   674707      
+a1                        =     -2.28643   +/-   0.189189    
 
 ****************************************
 Minimizer is Minuit / Migrad
-Chi2                      =      0.29358
+Chi2                      =      29.7368
 NDf                       =           14
-Edm                       =  2.83687e-08
-NCalls                    =           98
-k1                        =        37636   +/-   32484.3     
-a1                        =     -2.26286   +/-   0.194122    
+Edm                       =  1.04521e-06
+NCalls                    =           92
+k1                        =       395774   +/-   320688      
+a1                        =     -2.27214   +/-   0.182083    
 
 ****************************************
 Minimizer is Minuit / Migrad
-Chi2                      =    0.0589989
+Chi2                      =      6.01601
 NDf                       =           14
-Edm                       =  1.79114e-07
-NCalls                    =          123
-k1                        =      16019.6   +/-   15835.7     
-a1                        =     -2.23657   +/-   0.222203    
-Warning in <Fit>: Abnormal termination of minimization.
-
-****************************************
-         Invalid FitResult  (status = 4 )
-****************************************
-Minimizer is Minuit / Migrad
-Chi2                      =   0.00800458
-NDf                       =           14
-Edm                       =  3.04421e-05
-NCalls                    =          109
-k1                        =      5067.84   +/-   9955.64     
-a1                        =     -2.17602   +/-   0.441182    
+Edm                       =  7.27068e-08
+NCalls                    =           97
+k1                        =       167086   +/-   126074      
+a1                        =     -2.24411   +/-   0.169465    
 
 ****************************************
 Minimizer is Minuit / Migrad
-Chi2                      =   0.00125184
+Chi2                      =     0.821423
 NDf                       =           14
-Edm                       =  3.66211e-07
-NCalls                    =          144
-k1                        =      1564.33   +/-   831.958     
-a1                        =     -2.07918   +/-   0.119188    
+Edm                       =  1.77952e-07
+NCalls                    =          118
+k1                        =      51471.7   +/-   33990.6     
+a1                        =     -2.17753   +/-   0.148112    
+
+****************************************
+Minimizer is Minuit / Migrad
+Chi2                      =     0.126663
+NDf                       =           14
+Edm                       =  1.96178e-08
+NCalls                    =          128
+k1                        =      15802.4   +/-   8764.32     
+a1                        =     -2.07962   +/-   0.124123    
+root [2] Info in <TCanvas::Print>: pdf file /home/rocky/software/GitGate_projectDemo/ene_iso/result/HPerD/dlinear_new.pdf has been created
 

@@ -1,3 +1,6 @@
+#include <cmath>
+#include <Math/Expression.h>
+
 Double_t fitFunc(Double_t *x,Double_t *par){
     return par[0]*TMath::Power(x[0],par[1]);
 }
@@ -23,7 +26,25 @@ void d_HperD()
     f1->SetParNames("k1","a1");
     f1->SetParameters(1,-2);
     //Draw with option goff and generate variables
-    Double_t x[] = {72,97,122,172,222,272,91.403,113.027,159.268,207.262,256.025,76.217,87.658,123.223,166.385,212.565};
+    Double_t d_iso=72.34;
+    Double_t x[16];
+    Double_t r[5]={25,50,100,150,200};
+    //Double_t theta[3]={0,45,90};
+    Double_t pi=TMath::Pi();
+    Double_t rad[3]={0,pi/4,pi/2};
+    x[0]=d_iso;
+    Int_t temp=1;
+    for(int i=0;i<3;i++)
+    {
+        for(int j=0;j<5;j++)
+        {
+            x[temp]=TMath::Sqrt(TMath::Sq(d_iso+r[j]*TMath::Cos(rad[i]))+TMath::Sq(r[j]*TMath::Sin(rad[i])));
+            //cout<<x[temp]<<endl;
+            temp++;
+        }
+    }
+
+    //Double_t x[] = {72,97,122,172,222,272,91.403,113.027,159.268,207.262,256.025,76.217,87.658,123.223,166.385,212.565};
     ipt->Draw("((EQ1+EQ2)*1e-9/D_p)/rbe:location","energy==400","goff");
     TGraph *gr1=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr1->SetTitle("400 MeV/u");

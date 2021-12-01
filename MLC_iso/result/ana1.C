@@ -32,9 +32,12 @@ void ana1()
             name.Form("%dmm %s",a[j],recep_id[i].c_str());
             cout<<file_name.Data()<<endl;
             root_file=new TFile(file_name.Data());
-            h[i][j]=(TH1D*)root_file->Get("energySpectrumNbPart");
+            //h[i][j]=(TH1D*)root_file->Get("energySpectrumNbPart");
+            h[i][j]=(TH1D*)root_file->Get("energySpectrumFluenceTrack");
 
-            h[i][j]->Scale(1/113.097);//dN/dA
+            //h[i][j]->Scale(1/113.097);//dN/dA
+            h[i][j]->Scale(1/904.77868);
+
             h[i][j]->Scale(1/event_numb[j]);
             h[i][j]->SetTitle(name.Data());
 
@@ -44,12 +47,12 @@ void ana1()
 
             if(j==0)
             {
-                h[i][j]->GetXaxis()->SetTitle("Energy/(MeV)");
+                h[i][j]->GetXaxis()->SetTitle("Energy (MeV)");
                 h[i][j]->GetXaxis()->CenterTitle(true);
-                h[i][j]->GetYaxis()->SetTitle("#Phi /( n #upoint cm^{-2} #upoint ion^{-1})");
+                h[i][j]->GetYaxis()->SetTitle("#Phi (n#upoint cm^{-2}#upoint ion^{-1})");
                 h[i][j]->GetYaxis()->CenterTitle(true);
                 h[i][j]->SetLineColor(1);
-                h[i][j]->Draw("hist E1");
+                h[i][j]->Draw("hist");
 
                 if(i==4 )
                 {
@@ -67,7 +70,7 @@ void ana1()
                 temp++;
                 if(temp==5) temp++;
                 h[i][j]->SetLineColor(temp);
-                h[i][j]->Draw("same hist E1");
+                h[i][j]->Draw("same hist ");
             }
             
             leg[i]->AddEntry(h[i][j],name.Data(),"l");
@@ -81,9 +84,11 @@ void ana1()
         leg[i]->Draw();
         //c[i]->BuildLegend();
         //c[i]->Draw();
-        format.Form(".png");
+        format.Form(".pdf");
         //change the path
-        pic_name.Form("/home/aaa/Desktop/Room2/MLC_iso/result/fluence/%s%s",recep_id[i].c_str(),format.Data());
+        //old//pic_name.Form("/home/aaa/Desktop/Room2/MLC_iso/result/fluence/%s%s",recep_id[i].c_str(),format.Data());
+        pic_name.Form("/home/rocky/software/GitGate_projectDemo/MLC_iso/result/fluence/%s%s",recep_id[i].c_str(),format.Data());
+
         c[i]->SaveAs(pic_name.Data());
         
 

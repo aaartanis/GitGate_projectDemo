@@ -101,6 +101,7 @@ void plot3()
     leg->AddEntry(gr4,"400 MeV/u,  8cm SOBP","p");
     leg->AddEntry(gr5,"400 MeV/u, 10cm SOBP","p");
     leg->AddEntry(gr6,"400 MeV/u, 12cm SOBP","p");
+    //leg->SetMargin(0.);
     //leg->AddEntry(f1,"Power law fit","l");
     leg->SetTextSize(0.03);
     leg->Draw();

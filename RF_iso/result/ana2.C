@@ -78,9 +78,13 @@ void ana2()
             name.Form("%dcm %s",a[j],recep_id[i].c_str());
             cout<<file_name.Data()<<endl;
             root_file=new TFile(file_name.Data());
-            h[i][j]=(TH1D*)root_file->Get("energySpectrumNbPart");
+            //h[i][j]=(TH1D*)root_file->Get("energySpectrumNbPart");
+            h[i][j]=(TH1D*)root_file->Get("energySpectrumFluenceTrack");
 
-            h[i][j]->Scale(1/113.097);//dN/dA
+
+            //h[i][j]->Scale(1/113.097);//dN/dA
+            h[i][j]->Scale(1/904.77868);
+
             h[i][j]->Scale(1/event_numb[j]);
             h[i][j]->SetTitle(name.Data());
             
@@ -98,9 +102,9 @@ void ana2()
             }
             if(j==0)
             {
-                th[i][j]->GetXaxis()->SetTitle("Energy/(MeV)");
+                th[i][j]->GetXaxis()->SetTitle("Energy (MeV)");
                 th[i][j]->GetXaxis()->CenterTitle(true);
-                th[i][j]->GetYaxis()->SetTitle("H per ion / (pSv#upoint ion^{-1})");
+                th[i][j]->GetYaxis()->SetTitle("H per ion (pSv#upoint ion^{-1})");
                 th[i][j]->GetYaxis()->CenterTitle(true);
                 th[i][j]->SetLineColor(1);
                 th[i][j]->Draw("hist");
@@ -136,8 +140,10 @@ void ana2()
         gPad->SetLogx(1);
         leg[i]->Draw();
         c[i]->Draw();
-        format.Form(".png");
-        pic_name.Form("/home/aaa/Desktop/Room2/RF_iso/result/dose_equ/%s%s",recep_id[i].c_str(),format.Data());
+        format.Form(".pdf");
+        //pic_name.Form("/home/aaa/Desktop/Room2/RF_iso/result/dose_equ/%s%s",recep_id[i].c_str(),format.Data());
+        pic_name.Form("/home/rocky/software/GitGate_projectDemo/RF_iso/result/dose_equ/%s%s",recep_id[i].c_str(),format.Data());
+
         c[i]->SaveAs(pic_name.Data());
     }
 }
