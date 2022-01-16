@@ -1,5 +1,5 @@
 Double_t fitFunc(Double_t *x,Double_t *par){
-    return par[0]*TMath::Power(x[0],par[1]);
+    return TMath::Power(x[0]/par[0],par[1]);
 }
 
 void d_HperD1()
@@ -19,9 +19,9 @@ void d_HperD1()
     c1->cd();
     TF1 *f1=new TF1("myfit",fitFunc,72,300,2);
     f1->SetLineColor(1);
-    f1->SetLineWidth(5);
-    f1->SetParNames("k1","a1");
-    f1->SetParameters(1,-2);
+    f1->SetLineWidth(3);
+    f1->SetParNames("d_iso","a");
+    f1->SetParameters(72,-2);
     //Draw with option goff and generate variables
     Double_t d_iso=72.34;
     Double_t x[16];
@@ -31,7 +31,7 @@ void d_HperD1()
     Double_t rad[3]={0,pi/4,pi/2};
     x[0]=d_iso;
     Int_t temp=1;
-    for(int i=0;i<3;i++)
+    for(int i=0;i<1;i++)
     {
         for(int j=0;j<5;j++)
         {
@@ -40,9 +40,10 @@ void d_HperD1()
             temp++;
         }
     }
-
+    //location<=5
+    //(location==0 ||( location>=6 && location<=10))
     //Double_t x[] = {72,97,122,172,222,272,91.403,113.027,159.268,207.262,256.025,76.217,87.658,123.223,166.385,212.565};
-    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/79.870180:location","energy==400","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/79.870180:location","energy==400 && (location==0 ||( location>=11 && location<=15))","goff");
     TGraph *gr1=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr1->SetTitle("400 MeV/u");
     gr1->SetMarkerStyle(21);
@@ -51,7 +52,7 @@ void d_HperD1()
     //gr1->Fit("myfit","","",69,275);
 
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/47.038287:location","energy==350","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/47.038287:location","energy==350 && (location==0 ||( location>=11 && location<=15))","goff");
     TGraph *gr2=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr2->SetTitle("350 MeV/u");
     gr2->SetMarkerStyle(22);
@@ -59,7 +60,7 @@ void d_HperD1()
     gr2->SetMarkerSize(1.5);
     //gr2->Fit("myfit","","",70,275);
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/24.625802:location","energy==300","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/24.625802:location","energy==300 && (location==0 ||( location>=11 && location<=15))","goff");
     TGraph *gr3=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr3->SetTitle("300 MeV/u");
     gr3->SetMarkerStyle(23);
@@ -67,7 +68,7 @@ void d_HperD1()
     gr3->SetMarkerSize(1.5);
     //gr3->Fit("myfit","","",70,275);
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/11.649179:location","energy==250","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/11.649179:location","energy==250 && (location==0 ||( location>=11 && location<=15))","goff");
     TGraph *gr4=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr4->SetTitle("250 MeV/u");
     gr4->SetMarkerStyle(20);
@@ -75,7 +76,7 @@ void d_HperD1()
     gr4->SetMarkerSize(1.5);
     //gr4->Fit("myfit","","",70,275);
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/4.6997141:location","energy==200","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/4.6997141:location","energy==200 && (location==0 ||( location>=11 && location<=15))","goff");
     TGraph *gr5=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr5->SetTitle("200 MeV/u");
     gr5->SetMarkerStyle(43);
@@ -83,7 +84,7 @@ void d_HperD1()
     gr5->SetMarkerSize(1.5);
     //gr5->Fit("myfit","","",70,275);
 
-    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/2.1156558:location","energy==165","goff");
+    ipt->Draw("((EQ1+EQ2)*1e-9/(D_p*rbe))/2.1156558:location","energy==165 && (location==0 ||( location>=11 && location<=15))","goff");
     TGraph *gr6=new TGraph(ipt->GetSelectedRows(),x,ipt->GetV1());
     gr6->SetTitle("165 MeV/u");
     gr6->SetMarkerStyle(34);
@@ -99,19 +100,22 @@ void d_HperD1()
     mgp->Add(gr5,"p");
     mgp->Add(gr6,"p");
     mgp->Draw("a");
-    gPad->SetLogx();
-    gPad->SetLogy();
-    mgp->Fit("myfit","","",70,275);
-    //mgp->GetYaxis()->SetLimits(0,14);
-    mgp->GetXaxis()->SetLimits(50,1000);
-    mgp->GetYaxis()->SetRangeUser(0.05,1.2);
-    //mgp->GetXaxis()->SetRangeUser(10,1000);
+    //gPad->SetLogx();
+    //gPad->SetLogy();
+    mgp->Fit("myfit","","",70,280);
+    
+    //mgp->GetXaxis()->SetLimits(50,400);
+    //mgp->GetYaxis()->SetRangeUser(0.04,2);
+
+    mgp->GetXaxis()->SetLimits(50,300);
+    mgp->GetYaxis()->SetRangeUser(0,1.4);
+
     mgp->GetXaxis()->SetTitle("d (cm)");
     mgp->GetXaxis()->CenterTitle(true);
     mgp->GetYaxis()->SetTitle("(H/D)_{d}/^{}(H/D)_{d_{iso}}");
     mgp->GetYaxis()->CenterTitle(true);
     TLegend *leg;
-    leg=new TLegend(0.6,0.5,0.8,0.8);
+    leg=new TLegend(0.7,0.6,0.95,0.95);
     leg->AddEntry(gr1,"400 MeV/u","p");
     leg->AddEntry(gr2,"350 MeV/u","p");
     leg->AddEntry(gr3,"300 MeV/u","p");
@@ -122,8 +126,25 @@ void d_HperD1()
     leg->SetTextSize(0.04);
     leg->Draw();
     gStyle->SetOptFit(0000);
+
+    TLatex * t=new TLatex();
+    //t->SetTextFont(22);
+    t->SetNDC();
+    t->SetTextSize(0.04);
+    //t->DrawLatex(0.25,0.35,"#frac{(H/D)_{d}}{(H/D)_{d_{iso}}} = (#frac{d}{76.124})^{-1.6191}");
+    t->DrawLatex(0.65,0.45,"#frac{(H/D)_{d}}{(H/D)_{d_{iso}}} = (#frac{d}{76.124})^{-1.6191}");
+    //t->DrawLatex(0.25,0.25,"#chi^{2} / ndf = 3.70e-1 / 34");
+    t->DrawLatex(0.65,0.35,"#chi^{2} / ndf = 0.37 / 34");
+    t->SetTextSize(0.06);
+    t->DrawLatex(0.4,0.85,"90^{#circ} direction");
+
+
+
+
     gPad->Modified();
     gPad->Update();
+    c1->Modified();
+    c1->Update();
    // gPad->BuildLegend();
 
     

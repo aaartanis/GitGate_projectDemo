@@ -17,7 +17,8 @@ void tree_plot()
     {
         loc.Form("location==%d",local[i]);
         //ipt->Draw("EQ1+EQ2:width",loc.Data(),"goff");
-        ipt->Draw("EQ1:width",loc.Data(),"goff");
+        //ipt->Draw("EQ1:width",loc.Data(),"goff");
+        ipt->Draw("EQ1+EQ2:width","","goff");
         gr[i]=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
         gr[i]->SetMarkerColor(col[i]);
         gr[i]->SetLineColor(col[i]);
@@ -31,7 +32,7 @@ void tree_plot()
     c0->cd();
     m1->Draw("ACP");
     m1->GetYaxis()->SetRangeUser(0,0.5);
-    TLegend *leg;
+   /* TLegend *leg;
     leg=new TLegend(0.6,0.6,0.95,0.95);
     leg->AddEntry(gr[0],"Isocenter","pl");
     leg->AddEntry(gr[1],"theta= 0 deg, r=50 cm","pl");
@@ -45,6 +46,7 @@ void tree_plot()
     leg->AddEntry(gr[9],"theta=90 deg, r=200 cm","pl");
     leg->SetTextSize(0.04);
     leg->Draw();
+    */
     m1->GetXaxis()->SetTitle("SOBP width/(cm)");
     m1->GetXaxis()->CenterTitle(true);
     m1->GetYaxis()->SetTitle("H_{EQ1} per ion / (pSv#upoint ion^{-1})");

@@ -36,6 +36,7 @@ void addpre()
         }
     }
     //Get (H/D)_ref
+    Double_t par[7]={1,1,1,1,0.000112,-0.0206487,1.12662};
     Long64_t nentries=ipt->GetEntries();
     for(Long64_t jentry=0; jentry<nentries;jentry++){
         ipt->GetEntry(jentry);
@@ -118,34 +119,167 @@ void addpre()
                     cout<<"Error of energy"<<endl;
             }
         }
+
         if(energy==165)
         {
-            HD_pre=HDRef[0]*TMath::Power(distance/72.34,-2.22094)*(-0.00383208*size*size/100+0.996192)*(-0.0238401*width+1.14768);
+            if(location<=5) 
+                {
+                    par[0]=72.3456;
+                    par[1]=-1.97667;
+                    par[2]=-0.00363303;
+                    par[3]=0.958614;
+                }
+            if(location>=6 && location<=10)
+                {
+                    par[0]=72.9878;
+                    par[1]=-1.85566;
+                    par[2]=-0.00419874;
+                    par[3]=0.971873;
+                }
+            if(location>=11 && location<=15)
+                {
+                    par[0]=76.124;
+                    par[1]=-1.6191;
+                    par[2]=-0.00403541;
+                    par[3]=1.01711;
+                }
+
+            HD_pre=HDRef[0]*TMath::Power(distance/par[0],par[1])*(par[2]*size*size/100+par[3])*(par[4]*width*width+par[5]*width+par[6]);
             cout<< location<< " "<< energy<< " "<< width<< " "<<size<< " "<<HDRef[0]<< " "<<HD_pre<<" "<<endl;
         }
         if(energy==200)
         {
-            HD_pre=HDRef[1]*TMath::Power(distance/72.34,-2.22094)*(-0.00383208*size*size/100+0.996192)*(-0.0238401*width+1.14768);
+            if(location<=5) 
+                {
+                    par[0]=72.3456;
+                    par[1]=-1.97667;
+                    par[2]=-0.00363303;
+                    par[3]=0.958614;
+                }
+            if(location>=6 && location<=10)
+                {
+                    par[0]=72.9878;
+                    par[1]=-1.85566;
+                    par[2]=-0.00419874;
+                    par[3]=0.971873;
+                }
+            if(location>=11 && location<=15)
+                {
+                    par[0]=76.124;
+                    par[1]=-1.6191;
+                    par[2]=-0.00403541;
+                    par[3]=1.01711;
+                }
+
+            HD_pre=HDRef[1]*TMath::Power(distance/par[0],par[1])*(par[2]*size*size/100+par[3])*(par[4]*width*width+par[5]*width+par[6]);
             cout<< location<< " "<< energy<< " "<< width<< " "<<size<< " "<<HDRef[1]<< " "<<HD_pre<<" "<<endl;
         }
         if(energy==250)
         {
-            HD_pre=HDRef[2]*TMath::Power(distance/72.34,-2.22094)*(-0.00383208*size*size/100+0.996192)*(-0.0238401*width+1.14768);
+            if(location<=5) 
+                {
+                    par[0]=72.3456;
+                    par[1]=-1.97667;
+                    par[2]=-0.00363303;
+                    par[3]=0.958614;
+                }
+            if(location>=6 && location<=10)
+                {
+                    par[0]=72.9878;
+                    par[1]=-1.85566;
+                    par[2]=-0.00419874;
+                    par[3]=0.971873;
+                }
+            if(location>=11 && location<=15)
+                {
+                    par[0]=76.124;
+                    par[1]=-1.6191;
+                    par[2]=-0.00403541;
+                    par[3]=1.01711;
+                }
+
+            HD_pre=HDRef[2]*TMath::Power(distance/par[0],par[1])*(par[2]*size*size/100+par[3])*(par[4]*width*width+par[5]*width+par[6]);
             cout<< location<< " "<< energy<< " "<< width<< " "<<size<< " "<<HDRef[2]<< " "<<HD_pre<<" "<<endl;
         }
         if(energy==300)
         {
-            HD_pre=HDRef[3]*TMath::Power(distance/72.34,-2.22094)*(-0.00383208*size*size/100+0.996192)*(-0.0238401*width+1.14768);
+            if(location<=5) 
+                {
+                    par[0]=72.3456;
+                    par[1]=-1.97667;
+                    par[2]=-0.00363303;
+                    par[3]=0.958614;
+                }
+            if(location>=6 && location<=10)
+                {
+                    par[0]=72.9878;
+                    par[1]=-1.85566;
+                    par[2]=-0.00419874;
+                    par[3]=0.971873;
+                }
+            if(location>=11 && location<=15)
+                {
+                    par[0]=76.124;
+                    par[1]=-1.6191;
+                    par[2]=-0.00403541;
+                    par[3]=1.01711;
+                }
+
+            HD_pre=HDRef[3]*TMath::Power(distance/par[0],par[1])*(par[2]*size*size/100+par[3])*(par[4]*width*width+par[5]*width+par[6]);
             cout<< location<< " "<< energy<< " "<< width<< " "<<size<< " "<<HDRef[3]<< " "<<HD_pre<<" "<<endl;
         }
         if(energy==350)
         {
-            HD_pre=HDRef[4]*TMath::Power(distance/72.34,-2.22094)*(-0.00383208*size*size/100+0.996192)*(-0.0238401*width+1.14768);
+            if(location<=5) 
+                {
+                    par[0]=72.3456;
+                    par[1]=-1.97667;
+                    par[2]=-0.00363303;
+                    par[3]=0.958614;
+                }
+            if(location>=6 && location<=10)
+                {
+                    par[0]=72.9878;
+                    par[1]=-1.85566;
+                    par[2]=-0.00419874;
+                    par[3]=0.971873;
+                }
+            if(location>=11 && location<=15)
+                {
+                    par[0]=76.124;
+                    par[1]=-1.6191;
+                    par[2]=-0.00403541;
+                    par[3]=1.01711;
+                }
+
+            HD_pre=HDRef[4]*TMath::Power(distance/par[0],par[1])*(par[2]*size*size/100+par[3])*(par[4]*width*width+par[5]*width+par[6]);
             cout<< location<< " "<< energy<< " "<< width<< " "<<size<< " "<<HDRef[4]<< " "<<HD_pre<<" "<<endl;
         }
         if(energy==400)
         {
-            HD_pre=HDRef[5]*TMath::Power(distance/72.34,-2.22094)*(-0.00383208*size*size/100+0.996192)*(-0.0238401*width+1.14768);
+            if(location<=5) 
+                {
+                    par[0]=72.3456;
+                    par[1]=-1.97667;
+                    par[2]=-0.00363303;
+                    par[3]=0.958614;
+                }
+            if(location>=6 && location<=10)
+                {
+                    par[0]=72.9878;
+                    par[1]=-1.85566;
+                    par[2]=-0.00419874;
+                    par[3]=0.971873;
+                }
+            if(location>=11 && location<=15)
+                {
+                    par[0]=76.124;
+                    par[1]=-1.6191;
+                    par[2]=-0.00403541;
+                    par[3]=1.01711;
+                }
+
+            HD_pre=HDRef[5]*TMath::Power(distance/par[0],par[1])*(par[2]*size*size/100+par[3])*(par[4]*width*width+par[5]*width+par[6]);
             cout<< location<< " "<< energy<< " "<< width<< " "<<size<< " "<<HDRef[5]<< " "<<HD_pre<<" "<<endl;
         }
         HD_mc=(EQ1+EQ2)*1e-9/(D_p*rbe);

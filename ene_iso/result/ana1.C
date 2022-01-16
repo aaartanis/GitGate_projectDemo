@@ -13,7 +13,7 @@ void ana1()
     "90deg_150cm","90deg_200cm"};
     Double_t event_numb[6]={10031664,10028265,10031125,10030249,10031509,10031445};
    
-    for(Int_t i=0;i<1;i++)
+    for(Int_t i=0;i<16;i++)
     {
         canvas.Form("c%d",i+1);
         c[i]=new TCanvas(canvas.Data(),canvas.Data());

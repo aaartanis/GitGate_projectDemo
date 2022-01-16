@@ -17,9 +17,12 @@ void HDall()
     t1->ReadFile("Yan.CSV","x/D:y/D:y_coordinate/D");
     t1->Draw("y_coordinate:x","","goff");
     TGraph *g1=new TGraph(t1->GetSelectedRows(),t1->GetV2(),t1->GetV1());
+    //g1->SetMarkerStyle(20);
+    //g1->SetMarkerColor(6);
+    //g1->SetMarkerSize(2);
     g1->SetLineWidth(3);
-    g1->SetLineColor(kGreen+1);
-    g1->SetLineStyle(9);
+    g1->SetLineColor(6);
+    g1->SetLineStyle(2);
 
     /*
     TTree *t2=new TTree("t2","tree form Wroe.CSV");
@@ -130,15 +133,16 @@ void HDall()
     leg=new TLegend(0.6,0.5,0.8,0.8);
     leg->AddEntry(g8,"Upper Bounds","l");
     leg->AddEntry(g9,"Lower Bounds","l");
-    leg->AddEntry(g1,"Yan et al","l");
+    leg->AddEntry(g1,"Proton -Yan et al","l");
    // leg->AddEntry(g2,"Wroe et al","pl");
    // leg->AddEntry(g3,"Mesoloras et al","pl");
    // leg->AddEntry(g4,"Zacharatou Jarlskog et al","l");
-    leg->AddEntry(g10,"Zheng et al","pl");
-    leg->AddEntry(g5,"Polf et al","pl");
-    leg->AddEntry(g6,"Schneider et al","pl");
-    leg->AddEntry(g7,"Yonai et al","pl");
-    leg->AddEntry(gr1,"This Work","pl");
+    leg->AddEntry(g10,"Proton -Zheng et al","pl");
+    leg->AddEntry(g5,"Proton -Polf et al","pl");
+    leg->AddEntry(g6,"Proton scanning","pl");
+    leg->AddEntry(g6,"-Schneider et al","");
+    leg->AddEntry(g7,"Carbon -Yonai et al","pl");
+    leg->AddEntry(gr1,"Carbon -This Work","pl");
     //leg->AddEntry(f1,"Power law fit","l");
     leg->SetTextSize(0.03);
     leg->Draw();

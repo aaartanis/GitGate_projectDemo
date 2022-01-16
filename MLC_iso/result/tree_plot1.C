@@ -7,18 +7,27 @@ void tree_plot1()
     TFile *ipf=new TFile("datatree_MLC.root");
     TTree *ipt=(TTree*)ipf->Get("t");
     TMultiGraph *m1 =new TMultiGraph();
-    TGraph *gr[10];
-    Color_t col[10]={1,2,3,4,41,40,6,9,46,49}; 
-    Int_t mar[10]={20,33,22,23,29,21,34,39,43,47};
-    Int_t local[10]={0,2,3,5,7,8,10,12,13,15};
-    Double_t EQ1[10]={0.215527,0.0747379,0.0374133,0.0147071,0.081925,0.038539,0.0137778,0.115472,0.0417132,0.0095373};
-    Double_t EQ2[10]={0.0647728,0.0242042,0.012531,0.0051738,0.0208625,0.0085722,0.0027704,0.021648,0.0062604,0.0014345};
+    TGraph *gr[6];
+    Color_t col[6]={1,2,3,4,41,40}; 
+    Int_t mar[6]={20,33,22,23,29,21};
+    Int_t local_angle0[6]={0,1,2,3,4,5};
+    Int_t local_angle45[6]={0,6,7,8,9,10};
+    Int_t local_angle90[6]={0,11,12,13,14,15};
+
+    Double_t HD_EQ1_angle0[6]={61.464474,33.774931,21.307011,10.665022,6.355964,4.1974299};
+    Double_t HD_EQ1_angle45[6]={61.464474,37.198176,23.342629,10.995374,6.1752097,3.9338666};
+    Double_t HD_EQ1_angle90[6]={61.464474,51.256597,32.928883,11.895497,5.1762003,2.7172422};
+
+    Double_t HD_EQ2_angle0[6]={18.501285,10.63874,6.8877371,3.5645188,2.1781374,1.4734661};
+    Double_t HD_EQ2_angle45[6]={18.501285,10.578507,5.9521529,2.4471995,1.2855682,0.7882214};
+    Double_t HD_EQ2_angle90[6]={18.501285,12.390897,6.1686534,1.7820085,0.757994,0.4124170};
+
     TString loc,target;
 
-    for(int i=0;i<10;i++)
+    for(int i=0;i<6;i++)
     {
-        target.Form("(EQ1)/%f:size*size/100",EQ1[i]);
-        loc.Form("location==%d",local[i]);
+        target.Form("((EQ2)*1e-9/(D_p*rbe))/%f:size*size/100",HD_EQ2_angle0[i]);
+        loc.Form("location==%d",local_angle0[i]);
         ipt->Draw(target.Data(),loc.Data(),"goff");
         gr[i]=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
         gr[i]->SetMarkerColor(col[i]);
@@ -32,25 +41,26 @@ void tree_plot1()
     TCanvas *c0=new TCanvas();
     c0->cd();
     m1->Draw("ACP");
-    m1->GetYaxis()->SetRangeUser(0,1.2);
+    m1->GetYaxis()->SetRangeUser(0,2);
     TLegend *leg;
-    leg=new TLegend(0.6,0.6,0.95,0.95);
+    leg=new TLegend(0.75,0.6,0.95,0.95);
     leg->AddEntry(gr[0],"Isocenter","pl");
-    leg->AddEntry(gr[1],"theta= 0 deg, r=50 cm","pl");
-    leg->AddEntry(gr[4],"theta=45 deg, r=50 cm","pl");
-    leg->AddEntry(gr[7],"theta=90 deg, r=50 cm","pl");
-    leg->AddEntry(gr[2],"theta= 0 deg, r=100 cm","pl");
-    leg->AddEntry(gr[5],"theta=45 deg, r=100 cm","pl");
-    leg->AddEntry(gr[8],"theta=90 deg, r=100 cm","pl");
-    leg->AddEntry(gr[3],"theta= 0 deg, r=200 cm","pl");
-    leg->AddEntry(gr[6],"theta=45 deg, r=200 cm","pl");
-    leg->AddEntry(gr[9],"theta=90 deg, r=200 cm","pl");
+    leg->AddEntry(gr[1],"25 cm","pl");
+    leg->AddEntry(gr[2],"50 cm","pl");
+    leg->AddEntry(gr[3],"100 cm","pl");
+    leg->AddEntry(gr[4],"150 cm","pl");
+    leg->AddEntry(gr[5],"200 cm","pl");
     leg->SetTextSize(0.04);
     leg->Draw();
     m1->GetXaxis()->SetTitle("aperture size/(cm^{2})");
     m1->GetXaxis()->CenterTitle(true);
-    m1->GetYaxis()->SetTitle("H_{EQ1} / H_{EQ1_{0}}");
+    m1->GetYaxis()->SetTitle("(H/D)_{2} / (H/D)_{2_{0}}");
     m1->GetYaxis()->CenterTitle(true);
+
+    TLatex *t = new TLatex();
+    t->SetNDC();
+    t->SetTextSize(0.06);
+    t->DrawLatex(0.4,0.85,"0^{#circ} direction");
 
 
 
