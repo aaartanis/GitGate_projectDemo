@@ -29,6 +29,7 @@
 /gate/volume0/vis/forceSolid
 /gate/volume0/vis/setColor                   blue
 
+
 #volume1 0deg sphere
 /gate/world/daughters/name		     volume1
 /gate/world/daughters/insert                 sphere
