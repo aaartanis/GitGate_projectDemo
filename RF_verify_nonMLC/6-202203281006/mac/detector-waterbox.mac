@@ -1,0 +1,34 @@
+#=====================================================
+# OUTPUT - DETECTOR
+#=====================================================
+
+#receptor0
+/gate/actor/addActor                                 EnergySpectrumActor  receptor0
+/gate/actor/receptor0/save                           output/iso/0_receptor.root
+/gate/actor/receptor0/attachTo                       volume0
+/gate/actor/receptor0/addFilter                      particleFilter
+/gate/actor/receptor0/particleFilter/addParticle     neutron
+/gate/actor/receptor0/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor0/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor0/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor0/setLogBinWidth		     true
+/gate/actor/receptor0/enableFluenceTrackSpectrum     true
+/gate/actor/receptor0/enableEdepSpectrum             false
+/gate/actor/receptor0/enableNbPartSpectrum           true
+
+#receptor1
+/gate/actor/addActor                                 EnergySpectrumActor  receptor1
+/gate/actor/receptor1/save                           output/pre_point/1_receptor.root
+/gate/actor/receptor1/attachTo                       volume1
+/gate/actor/receptor1/addFilter                      particleFilter
+/gate/actor/receptor1/particleFilter/addParticle     neutron
+/gate/actor/receptor1/energySpectrum/setEmin         1e-6 MeV
+/gate/actor/receptor1/energySpectrum/setEmax         1e3 MeV
+/gate/actor/receptor1/energySpectrum/setNumberOfBins 480
+/gate/actor/receptor1/setLogBinWidth		      true
+/gate/actor/receptor1/enableFluenceTrackSpectrum     true
+/gate/actor/receptor1/enableEdepSpectrum             false
+/gate/actor/receptor1/enableNbPartSpectrum           true
+
+
+

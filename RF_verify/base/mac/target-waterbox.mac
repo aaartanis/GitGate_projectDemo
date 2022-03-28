@@ -1,0 +1,24 @@
+
+
+#volume0 iso sphere
+/gate/world/daughters/name		     volume0
+/gate/world/daughters/insert                 sphere
+/gate/volume0/setMaterial		     Air
+/gate/volume0/geometry/setRmax               6 cm
+/gate/volume0/placement/setTranslation       0 0 0 cm
+/gate/volume0/vis/forceSolid
+/gate/volume0/vis/setColor                   blue
+
+#volume1 0deg sphere
+/gate/world/daughters/name		     volume1
+/gate/world/daughters/insert                 sphere
+/gate/volume1/setMaterial		     Air
+/gate/volume1/geometry/setRmax               6 cm
+/gate/volume1/placement/setTranslation       0 0 -164 cm
+/gate/volume1/vis/forceSolid
+/gate/volume1/vis/setColor                   blue
+
+
+
+
+

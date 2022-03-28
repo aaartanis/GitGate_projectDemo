@@ -1,0 +1,45 @@
+ ######################
+ # Pre_Collimator #
+######################
+/gate/world/daughters/name pre_collimator
+/gate/world/daughters/insert box
+/gate/pre_collimator/geometry/setXLength 200 mm
+/gate/pre_collimator/geometry/setYLength 200 mm
+/gate/pre_collimator/geometry/setZLength  46 mm
+/gate/pre_collimator/placement/setTranslation 0 0 -3575 mm
+/gate/pre_collimator/setMaterial Copper
+/gate/pre_collimator/vis/forceWireframe
+#/gate/pre_collimator/vis/setColor Blue
+
+/gate/pre_collimator/daughters/name pre_hole
+/gate/pre_collimator/daughters/insert box
+/gate/pre_hole/geometry/setXLength 150 mm
+/gate/pre_hole/geometry/setYLength 150 mm
+/gate/pre_hole/geometry/setZLength  46 mm
+/gate/pre_hole/placement/setTranslation 0 0 0 mm
+/gate/pre_hole/setMaterial Air
+#/gate/pre_hole/vis/setColor Yellow
+/gate/pre_hole/vis/forceSolid
+
+
+  #################
+ #  Ridge filter #
+#################
+
+
+/control/execute mac/RF_data/RF_300MeV_6cm_Al.mac
+
+/gate/RF_box/placement/setRotationAxis 0 1 0
+/gate/RF_box/placement/setRotationAngle 180 deg
+
+
+
+  ##################
+ #  Range shifter #
+##################
+
+  #########################
+ # Multi-leaf collimator #
+#########################
+
+
