@@ -40,8 +40,7 @@ while i==1;do
 done
 
 #loop iso
-deg=("0deg" "45deg" "90deg")
-distance=("25cm" "50cm" "100cm" "150cm" "200cm")
+
 for i in $file_name;do
 	mkdir $result_path/$i
 	pwd
@@ -50,22 +49,13 @@ for i in $file_name;do
 	cd output
 	pwd
 	
-	#if 0;then
-	n=0
-	for j in ${deg[@]};do
-		cd $j
-		for k in ${distance[@]}; do
-			cd $k
-			let n++
-			target=$n"_receptor"
-			target_file=$n"_receptor.root"
-			rm -f $target_file
-			mergefile
-			cp $target_file $result_path/$i/$target_file
-			cd ..
-		done
-        cd ..
-	done
+	cd pre_point
+	target=1_receptor
+	target_file=1_receptor.root
+	rm -f $target_file
+	mergefile
+	cp $target_file $result_path/$i/$target_file 
+	cd ../
 
 	cd iso
 	target=0_receptor
