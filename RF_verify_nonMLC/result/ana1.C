@@ -1,5 +1,27 @@
 void ana1()
 {    
+
+    gStyle->SetPadTopMargin(0.1);
+    gStyle->SetPadRightMargin(0.1);
+    gStyle->SetPadBottomMargin(0.15);
+    gStyle->SetPadLeftMargin(0.15);
+    gStyle->SetTextFont(22);
+    gStyle->SetTextSize(0.08);
+    gStyle->SetLabelFont(22,"xyz");
+    gStyle->SetLabelSize(0.05,"xyz");
+    gStyle->SetLabelOffset(0.015,"xyz");
+    gStyle->SetTitleFont(22,"xyz");
+    gStyle->SetTitleSize(0.06,"xyz");
+    gStyle->SetTitleOffset(1.2,"xyz");
+    gStyle->SetLegendFont(22);
+
+    gStyle->SetFrameLineStyle(1);
+    gStyle->SetFrameLineWidth(3);
+    gStyle->SetLineWidth(3);
+    gStyle->SetHistLineWidth(3);
+    gStyle->SetMarkerSize(1.5);
+    TGaxis::SetMaxDigits(3);
+
     TCanvas *c[2];
     TLegend *leg[2];
     TString canvas,file_name,name,pic_name,format;
@@ -8,14 +30,14 @@ void ana1()
     //Int_t a[6]={400,350,300,250,200,165};
     Int_t a[3]={2,6,10};
     Int_t b[2]={0,1};
-    string recep_id[2]={"iso","pre_point"};
+    string recep_id[2]={"iso","pre"};
     //Double_t event_numb[6]={10031664,10028265,10031125,10030249,10031509,10031445};
     Double_t event_numb[6]={10029306,10028922,10031573};
 
-    for(Int_t i=1;i<2;i++)
+    for(Int_t i=0;i<1;i++)
     {
         canvas.Form("c%d",i+1);
-        c[i]=new TCanvas(canvas.Data(),canvas.Data());
+        c[i]=new TCanvas(canvas.Data(),canvas.Data(),700,500);
         leg[i]=new TLegend(0.17,0.6,0.54,0.9);
         Int_t temp=1;
         for(Int_t j=0;j<3;j++)
@@ -24,7 +46,7 @@ void ana1()
             //change file directory name
             file_name.Form("%d-202203281006/%d_receptor.root",a[j],b[i]);
             //change the legend name
-            name.Form("SOBP width %dcm %s",a[j],recep_id[i].c_str());
+            name.Form("SOBP %dcm %s",a[j],recep_id[i].c_str());
             cout<<file_name.Data()<<endl;
             root_file=new TFile(file_name.Data());
             //h[i][j]=(TH1D*)root_file->Get("energySpectrumNbPart");
@@ -61,19 +83,19 @@ void ana1()
             leg[i]->SetTextSize(0.04);
 
         }
+        h[i][0]->GetYaxis()->SetRangeUser(0,20e-6);
         c[i]->cd();
         gStyle->SetOptStat(0);
         gPad->SetLogx(1);
         //gStyle->SetLegendTextSize(0);
         leg[i]->Draw();
-        //c[i]->BuildLegend();
-        //c[i]->Draw();
-        format.Form(".pdf");
+    
+       // format.Form(".pdf");
         //change the path
         //old//pic_name.Form("/home/aaa/Desktop/Room2/RF_iso/result/fluence/%s%s",recep_id[i].c_str(),format.Data());
-        pic_name.Form("/home/rocky/software/GitGate_projectDemo/RF_verify_nonMLC/result/fluence/%s%s",recep_id[i].c_str(),format.Data());
+       // pic_name.Form("/home/rocky/software/GitGate_projectDemo/RF_verify_nonMLC/result/fluence/%s%s",recep_id[i].c_str(),format.Data());
 
-        c[i]->SaveAs(pic_name.Data());
+       // c[i]->SaveAs(pic_name.Data());
         
 
     }
