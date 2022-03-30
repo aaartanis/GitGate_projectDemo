@@ -62,42 +62,43 @@ void plot3()
     gr6->SetMarkerSize(1.5);
     */
 
-    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 && location <=15 && size ==0","goff");
+    
+    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 && location <=5 && size ==0","goff");
     TGraph *gr1=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
     gr1->SetMarkerStyle(34);
     gr1->SetMarkerColor(7);
     gr1->SetMarkerSize(1.5);
-    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 && location <=15 && size ==30 ","goff");
+    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 && location <=5 && size ==30 ","goff");
     TGraph *gr2=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
     gr2->SetMarkerStyle(21);
     gr2->SetMarkerColor(6);
     gr2->SetMarkerSize(1.5);
-    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 && location <=15 && size ==60 ","goff");
+    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 && location <=5 && size ==60 ","goff");
     TGraph *gr3=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
     gr3->SetMarkerStyle(20);
     gr3->SetMarkerColor(4);
     gr3->SetMarkerSize(1.5);
-    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 && location <=15 && size ==90 ","goff");
+    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 && location <=5 && size ==90 ","goff");
     TGraph *gr4=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
     gr4->SetMarkerStyle(23);
     gr4->SetMarkerColor(3);
     gr4->SetMarkerSize(1.5);
-    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 &&location <=15 && size ==120 ","goff");
+    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 &&location <=5 && size ==120 ","goff");
     TGraph *gr5=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
     gr5->SetMarkerStyle(22);
     gr5->SetMarkerColor(2);
     gr5->SetMarkerSize(1.5);
-    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 && location <=15 && size ==150 ","goff");
+    ipt->Draw("HD_pre/HD_mc:distance","energy==400 && width==6 && location <=5 && size ==150 ","goff");
     TGraph *gr6=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
     gr6->SetMarkerStyle(43);
     gr6->SetMarkerColor(9);
     gr6->SetMarkerSize(1.5);
-
-
-
-//        ipt->Draw("HD_pre/HD_mc:distance","energy==400   && width==6 && location <=15 && size =150 ","goff");
+    
 
 /*
+//        ipt->Draw("HD_pre/HD_mc:distance","energy==400   && width==6 && location <=15 && size =150 ","goff");
+
+
     ipt->Draw("HD_pre/HD_mc:distance","energy==165   && width==6 && location <=5 && size <=100 ","goff");
     TGraph *gr7=new TGraph(ipt->GetSelectedRows(),ipt->GetV2(),ipt->GetV1());
     gr7->SetMarkerStyle(29);
@@ -141,7 +142,9 @@ void plot3()
     //mgp->GetYaxis()->SetLimits(0,3);
     //mgp->GetXaxis()->SetLimits(40,310);
     //mgp->GetYaxis()->SetRangeUser(0.9,1.05);
-    mgp->GetYaxis()->SetRangeUser(0,6);
+    //mgp->GetYaxis()->SetRangeUser(0,6);
+    mgp->GetYaxis()->SetRangeUser(0,2);
+
 
     //mgp->GetXaxis()->SetRangeUser(40,310);
     mgp->GetXaxis()->SetTitle("d (cm)");

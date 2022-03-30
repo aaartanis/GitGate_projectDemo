@@ -157,7 +157,7 @@ void d_HperD1()
     //t->DrawLatex(0.25,0.25,"#chi^{2} / ndf = 3.70e-1 / 34");
     //t->DrawLatex(0.65,0.35,"#chi^{2} / ndf = 0.37 / 34");
     t->SetTextSize(0.06);
-    t->DrawLatex(0.19,0.82,"45^{#circ} direction");
+    t->DrawLatex(0.19,0.82,"0^{#circ} direction");
 
 
 
