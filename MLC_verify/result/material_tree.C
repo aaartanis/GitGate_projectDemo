@@ -2,18 +2,20 @@
 #include "TFile.h"
 #include "TTree.h"
 
-void datatree_MLC()
+void material_tree()
 {
     //open ROOT file to save the TTree in 
-    TFile *ftree= new TFile("datatree_MLC.root","recreate");
+    TFile *ftree= new TFile("material_tree.root","recreate");
     //creation of TTree
     TTree *t = new TTree("t","tree data of simulation");
-    Int_t location,energy,width,size;
+    TString material;
+    Int_t type,location,energy,width,size;
     Double_t EQ1,EQ2,D_p,rbe;
     //open the data file for reading
     ifstream file;
     file.open("dataFile.txt");
     //creation of branches to hold the variables
+    t->Branch("type",&type,"type/S");
     t->Branch("location",&location,"location/I");
     t->Branch("energy",&energy,"energy/I");
     t->Branch("width",&width,"width/I");
@@ -28,7 +30,11 @@ void datatree_MLC()
     int i=0;
     while(1)
     {
-        file>>location>>energy>>width>>size>>EQ1>>EQ2;
+        file>>material>>location>>energy>>width>>size>>EQ1>>EQ2;
+        if (material=="Alloy")
+            type=1;
+        else
+            type=2;
         switch(energy)
         {
         case 165 :
@@ -58,8 +64,9 @@ void datatree_MLC()
         default :
             cout<< "error"<<endl;
         }
-        if(file.eof()) break;
-        cout<< location<< " "<< energy<< " "<< width<< " "<<size<< " "<<EQ1<< " "<<EQ2<<" "<<D_p<<" "<<rbe<<endl;
+        if(file.eof()) 
+            break;
+        cout<<type<<" "<< location<< " "<< energy<< " "<< width<< " "<<size<< " "<<EQ1<< " "<<EQ2<<" "<<D_p<<" "<<rbe<<endl;
         t->Fill();
     }
     t->Write();

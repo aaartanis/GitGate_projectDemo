@@ -53,6 +53,25 @@ void HDall()
     g4->SetLineColor(kRed+1);
     g4->SetLineStyle(2);
 */
+  
+    TTree *t3=new TTree("t3","tree form work_Alloy.CSV");
+    t3->ReadFile("work_Alloy.CSV","x/D:y/D:y_coordinate/D");
+    t3->Draw("y_coordinate:x","","goff");
+    TGraph *g3=new TGraph(t3->GetSelectedRows(),t3->GetV2(),t3->GetV1());
+    g3->SetLineWidth(3);
+    g3->SetLineColor(46);
+    g3->SetMarkerStyle(21);
+    g3->SetMarkerSize(1.5);
+    g3->SetMarkerColor(46);
+
+    TTree *t4=new TTree("t4","tree form work_Iron.CSV");
+    t4->ReadFile("work_Iron.CSV","x/D:y/D:y_coordinate/D");
+    t4->Draw("y_coordinate:x","","goff");
+    TGraph *g4=new TGraph(t4->GetSelectedRows(),t4->GetV2(),t4->GetV1());
+    g4->SetLineWidth(3);
+    g4->SetLineColor(kRed+1);
+    g4->SetLineStyle(2);
+
     TTree *t5=new TTree("t5","tree form Polf.CSV");
     t5->ReadFile("Polf.CSV","x/D:y/D:y_coordinate/D");
     t5->Draw("y_coordinate:x","","goff");
@@ -115,7 +134,8 @@ void HDall()
    // mgp->Add(g4,"c");
     mgp->Add(g10,"pl");
    // mgp->Add(g2,"pl");    
-  // mgp->Add(g3,"pl");
+    mgp->Add(g3,"pl");
+    mgp->Add(g4,"pl");
     mgp->Add(g5,"pl");
     mgp->Add(g6,"pl");    
     mgp->Add(g7,"pl");
@@ -143,6 +163,8 @@ void HDall()
     leg->AddEntry(g6,"-Schneider et al","");
     leg->AddEntry(g7,"Carbon -Yonai et al","pl");
     leg->AddEntry(gr1,"Carbon -This Work","pl");
+    leg->AddEntry(g3,"Alloy","pl");
+    leg->AddEntry(g4,"Iron","pl");
     //leg->AddEntry(f1,"Power law fit","l");
     leg->SetTextSize(0.03);
     leg->Draw();

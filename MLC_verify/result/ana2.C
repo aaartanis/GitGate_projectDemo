@@ -46,14 +46,14 @@ void ana2()
         X[i]=Xlow * TMath::Power(10,BinSize*i);
     }
 
-    TH1D *th[16][6];
+    TH1D *th[16][2];
     TCanvas *c[16];
     TLegend *leg[16];
     TString canvas,file_name,name,pic_name,format;
     TFile *root_file;
-    TH1D *h[16][6],*h0,*th0;
+    TH1D *h[16][2],*h0,*th0;
     //Int_t a[6]={2,4,6,8,10,12};
-    Int_t a[6]={0,30,60,90,120,150};
+    string a[2]={"Alloy","Iron"};
     Int_t b[16]={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
     Double_t db;
     Double_t sum1,sum2;
@@ -62,25 +62,25 @@ void ana2()
     "45deg_150cm","45deg_200cm","90deg_25cm","90deg_50cm","90deg_100cm",\
     "90deg_150cm","90deg_200cm"};
     //Double_t event_numb[6]={10031509,10031445,10031445,10031509,10031479,10031172};
-    Double_t event_numb[6]={10031509,10031381,10031367,10031445,10031664,10030549};
+    Double_t event_numb[2]={10031189,10031317};
 
    
 
     ofstream dataFile;
     dataFile.open("dataFile.txt",ofstream::app);
-    dataFile << "location"<<"\t"<<"energy(MeV/u)"<<"\t"<<"SOBP_width(cm)"<<"\t"<<"aperture_size(mm)"<<"\t"<< "dose_EQ_min-15(pSv/ion)"<<"\t"<<"dose_EQ_15-max(pSv/ion)"<<endl;
+    dataFile <<"type"<<"\t"<< "location"<<"\t"<<"energy(MeV/u)"<<"\t"<<"SOBP_width(cm)"<<"\t"<<"aperture_size(mm)"<<"\t"<< "dose_EQ_min-15(pSv/ion)"<<"\t"<<"dose_EQ_15-max(pSv/ion)"<<endl;
     for(int i=0;i<16;i++) //i<16 change i<1
     {
         canvas.Form("c%d",i+1);
         c[i]=new TCanvas(canvas.Data(),canvas.Data());
         leg[i]=new TLegend(0.17,0.6,0.54,0.9);
         Int_t temp=1;
-        for(int j=0;j<6;j++)
+        for(int j=0;j<2;j++)
         {
             //change file directory name
-            file_name.Form("%d-202107171418/%d_receptor.root",a[j],b[i]);//change the name
+            file_name.Form("%s-202204011550/%d_receptor.root",a[j].c_str(),b[i]);//change the name
             //change the legend name
-            name.Form("%dmm %s",a[j],recep_id[i].c_str());
+            name.Form("%s %s",a[j].c_str(),recep_id[i].c_str());
             cout<<file_name.Data()<<endl;
             root_file=new TFile(file_name.Data());
             //h[i][j]=(TH1D*)root_file->Get("energySpectrumNbPart");
@@ -143,10 +143,11 @@ void ana2()
             }
           
             //change the varition
-            Int_t energy=400;
+            Int_t energy=300;
             Int_t SOBP_width=6;
+            Int_t aperturesize=50;
             //Int_t aperture_size=0;
-            dataFile<<b[i]<<"\t"<<energy<<"\t"<<SOBP_width<<"\t"<<a[j]<<"\t"<<sum1<<"\t"<<sum2<<endl;
+            dataFile<<a[j]<<"\t"<<b[i]<<"\t"<<energy<<"\t"<<SOBP_width<<"\t"<<aperturesize<<"\t"<<sum1<<"\t"<<sum2<<endl;
 
             leg[i]->AddEntry(th[i][j],name.Data(),"l");
             leg[i]->SetTextSize(0.04);
@@ -159,7 +160,7 @@ void ana2()
         c[i]->Draw();
         format.Form(".pdf");
         //pic_name.Form("/home/aaa/Desktop/Room2/MLC_iso/result/dose_equ/%s%s",recep_id[i].c_str(),format.Data());
-        pic_name.Form("/home/rocky/software/GitGate_projectDemo/MLC_iso/result/dose_equ/%s%s",recep_id[i].c_str(),format.Data());
+        pic_name.Form("/home/rocky/software/GitGate_projectDemo/MLC_verify/result/dose_equ/%s%s",recep_id[i].c_str(),format.Data());
 
         c[i]->SaveAs(pic_name.Data());
     }
