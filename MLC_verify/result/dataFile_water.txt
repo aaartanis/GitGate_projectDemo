@@ -1,0 +1,10 @@
+type	location	energy(MeV/u)	SOBP_width(cm)	aperture_size(mm)	dose_EQ_min-15(pSv/ion)	dose_EQ_15-max(pSv/ion)
+Water	11	300	6	50	0.179916	0.255878
+Water	12	300	6	50	0.113479	0.111929
+Water	13	300	6	50	0.0519536	0.0366992
+Water	14	300	6	50	0.0279003	0.0172214
+Water	15	300	6	50	0.0169722	0.00922939
+
+11 9.0899502
+12 4.7016423
+13 1.8491524

@@ -40,7 +40,8 @@ while i==1;do
 done
 
 #loop iso
-deg=("0deg" "45deg" "90deg")
+#deg=("0deg" "45deg" "90deg")
+deg=("90deg")
 distance=("25cm" "50cm" "100cm" "150cm" "200cm")
 for i in $file_name;do
 	mkdir $result_path/$i
@@ -51,7 +52,7 @@ for i in $file_name;do
 	pwd
 	
 	#if 0;then
-	n=0
+	n=10
 	for j in ${deg[@]};do
 		cd $j
 		for k in ${distance[@]}; do

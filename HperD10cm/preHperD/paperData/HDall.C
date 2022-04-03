@@ -53,6 +53,15 @@ void HDall()
     g4->SetLineColor(kRed+1);
     g4->SetLineStyle(2);
 */
+    TTree *t2=new TTree("t2","tree form work_waterbox.CSV");
+    t2->ReadFile("work_waterbox.CSV","x/D:y/D:y_coordinate/D");
+    t2->Draw("y_coordinate:x","","goff");
+    TGraph *g2=new TGraph(t2->GetSelectedRows(),t2->GetV2(),t2->GetV1());
+    g2->SetLineWidth(3);
+    g2->SetLineColor(4);
+    g2->SetMarkerStyle(20);
+    g2->SetMarkerSize(1.5);
+    g2->SetMarkerColor(4);
   
     TTree *t3=new TTree("t3","tree form work_Alloy.CSV");
     t3->ReadFile("work_Alloy.CSV","x/D:y/D:y_coordinate/D");
@@ -133,7 +142,7 @@ void HDall()
     mgp->Add(g1,"c");
    // mgp->Add(g4,"c");
     mgp->Add(g10,"pl");
-   // mgp->Add(g2,"pl");    
+    mgp->Add(g2,"pl");    
     mgp->Add(g3,"pl");
     mgp->Add(g4,"pl");
     mgp->Add(g5,"pl");
@@ -165,6 +174,7 @@ void HDall()
     leg->AddEntry(gr1,"Carbon -This Work","pl");
     leg->AddEntry(g3,"Alloy","pl");
     leg->AddEntry(g4,"Iron","pl");
+    leg->AddEntry(g2,"Watertank","pl");
     //leg->AddEntry(f1,"Power law fit","l");
     leg->SetTextSize(0.03);
     leg->Draw();
