@@ -1,0 +1,11 @@
+type	location	energy(MeV/u)	SOBP_width(cm)	aperture_size(mm)	dose_EQ_min-15(pSv/ion)	dose_EQ_15-max(pSv/ion)
+source	11	300	6	50	0.178981	0.252746
+source	12	300	6	50	0.108767	0.106745
+source	13	300	6	50	0.0505085	0.0353474
+source	14	300	6	50	0.0265356	0.0169272
+source	15	300	6	50	0.0163381	0.00960615
+
+11  9.005119
+12  4.495228
+13  1.790814
+
