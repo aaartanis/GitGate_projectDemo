@@ -1,0 +1,77 @@
+# WATERBOX
+/gate/world/daughters/name                   watertank
+/gate/world/daughters/insert                    box
+/gate/watertank/setMaterial                     PMMA
+/gate/watertank/geometry/setXLength             26.0 cm
+/gate/watertank/geometry/setYLength             24.0 cm
+/gate/watertank/geometry/setZLength             41.0 cm
+/gate/watertank/placement/setTranslation        0 0 0 cm
+/gate/watertank/vis/forceWireframe
+/gate/watertank/vis/setColor                    blue
+
+#measurement target
+/gate/watertank/daughters/name               water_box
+/gate/watertank/daughters/insert                box
+/gate/water_box/setMaterial                     Water
+/gate/water_box/geometry/setXLength             24.0 cm
+/gate/water_box/geometry/setYLength             22.0 cm
+/gate/water_box/geometry/setZLength             39.0 cm
+/gate/water_box/placement/setTranslation        0 0 0 cm
+/gate/water_box/vis/forceSolid
+/gate/water_box/vis/setColor                    blue
+
+#volume11 90deg sphere
+/gate/world/daughters/name		     volume11
+/gate/world/daughters/insert                 sphere
+/gate/volume11/setMaterial		     Air
+/gate/volume11/geometry/setRmax              6 cm
+/gate/volume11/placement/setTranslation      25 0 0 cm
+/gate/volume11/vis/forceSolid
+/gate/volume11/vis/setColor                  blue
+
+#volume12 90deg sphere
+/gate/world/daughters/name		     volume12
+/gate/world/daughters/insert                 sphere
+/gate/volume12/setMaterial		     Air
+/gate/volume12/geometry/setRmax              6 cm
+/gate/volume12/placement/setTranslation      50 0 0 cm
+/gate/volume12/vis/forceSolid
+/gate/volume12/vis/setColor                  blue
+
+#volume13 90deg sphere
+/gate/world/daughters/name		     volume13
+/gate/world/daughters/insert                 sphere
+/gate/volume13/setMaterial		     Air
+/gate/volume13/geometry/setRmax              6 cm
+/gate/volume13/placement/setTranslation      100 0 0 cm
+/gate/volume13/vis/forceSolid
+/gate/volume13/vis/setColor                  blue
+
+#volume14 90deg sphere
+/gate/world/daughters/name		     volume14
+/gate/world/daughters/insert                 sphere
+/gate/volume14/setMaterial		     Air
+/gate/volume14/geometry/setRmax              6 cm
+/gate/volume14/placement/setTranslation      150 0 0 cm
+/gate/volume14/vis/forceSolid
+/gate/volume14/vis/setColor                  blue
+
+#volume15 90deg sphere
+/gate/world/daughters/name		     volume15
+/gate/world/daughters/insert                 sphere
+/gate/volume15/setMaterial		     Air
+/gate/volume15/geometry/setRmax              6 cm
+/gate/volume15/placement/setTranslation      200 0 0 cm
+/gate/volume15/vis/forceSolid
+/gate/volume15/vis/setColor                  blue
+
+#measurement sphere
+#/gate/target/daughters/name		     msphere
+#/gate/target/daughters/insert                sphere
+#/gate/msphere/setMaterial		     Water
+#/gate/msphere/geometry/setRmin 	             0. cm
+#/gate/msphere/geometry/setRmax               15 cm
+#/gate/msphere/placement/setTranslation       0 0 0 cm
+#/gate/msphere/vis/forceSolid
+#/gate/msphere/vis/setColor white
+
