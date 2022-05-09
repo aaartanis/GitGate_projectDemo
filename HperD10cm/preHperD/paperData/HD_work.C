@@ -53,6 +53,7 @@ void HD_work()
     g4->SetLineColor(kRed+1);
     g4->SetLineStyle(2);
 */
+/*
     TTree *t2=new TTree("t2","tree form work_waterbox.CSV");
     t2->ReadFile("work_waterbox.CSV","x/D:y/D:y_coordinate/D");
     t2->Draw("y_coordinate:x","","goff");
@@ -72,7 +73,7 @@ void HD_work()
     g3->SetMarkerStyle(21);
     g3->SetMarkerSize(1.5);
     g3->SetMarkerColor(46);
-
+*/
     TTree *t4=new TTree("t4","tree form work_Iron.CSV");
     t4->ReadFile("work_Iron.CSV","x/D:y/D:y_coordinate/D");
     t4->Draw("y_coordinate:x","","goff");
@@ -145,15 +146,15 @@ void HD_work()
     //mgp->Add(g1,"c");
    // mgp->Add(g4,"c");
     //mgp->Add(g10,"pl");
-    mgp->Add(g2,"pl");    
-    mgp->Add(g3,"pl");
+    //mgp->Add(g2,"pl");    
+    //mgp->Add(g3,"pl");
     mgp->Add(g4,"pl");
     mgp->Add(g5,"pl");
     //mgp->Add(g6,"pl");    
     mgp->Add(g7,"pl");
     mgp->Add(gr1,"pl");
     mgp->GetXaxis()->SetRangeUser(0,80);
-    mgp->GetYaxis()->SetRangeUser(1e-2,1000);
+    mgp->GetYaxis()->SetRangeUser(5e-2,80);
     mgp->Draw("a");
     mgp->GetXaxis()->SetTitle("Distance From Field Edge (cm)");
     //mgp->GetXaxis()->SetTitle("\\hbox{与射野边缘的距离} (cm)");
@@ -173,12 +174,15 @@ void HD_work()
     
     //leg->AddEntry(g6,"Proton scanning","pl");
     //leg->AddEntry(g6,"-Schneider et al","");
-    leg->AddEntry(g7,"Carbon -Yonai et al","pl");
-    leg->AddEntry(gr1,"Carbon -This Work","pl");
-    leg->AddEntry(g3,"Alloy","pl");
-    leg->AddEntry(g4,"Iron","pl");
-    leg->AddEntry(g2,"Watertank","pl");
-    leg->AddEntry(g5,"FLC","pl");
+    leg->AddEntry(gr1,"This Work","pl");
+    leg->AddEntry(g4,"Use Iron MLC","pl");
+    leg->AddEntry(g5,"Add FLC","pl");
+    leg->AddEntry(g7,"Yonai et al","pl");
+    
+    //leg->AddEntry(g3,"Alloy","pl");
+    
+    //leg->AddEntry(g2,"Watertank","pl");
+    
     //leg->AddEntry(f1,"Power law fit","l");
     leg->SetTextSize(0.03);
     leg->Draw();

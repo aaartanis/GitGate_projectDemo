@@ -1,4 +1,4 @@
-void plot()
+void plot_400()
 {
     TCanvas *c0=new TCanvas("c0","c0");
     c0->cd();
@@ -15,7 +15,7 @@ void plot()
     getline(inf,ss);
     int i=0;
     while(!inf.eof()){
-        inf >> Depth>>Gy>>GyE>>RBE>>a>>b>>c>>d;
+        inf >> Depth>>Gy>>GyE>>RBE>>a;
         g1->SetPoint(i++,Depth,GyE);
        
     }
